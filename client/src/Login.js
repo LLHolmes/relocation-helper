@@ -12,6 +12,11 @@ class Login extends Component {
     this.setState({ [event.target.name] = event.target.value });
   };
 
+  handleLogin = event => {
+    event.preventDefault();
+
+  };
+
   render() {
     return (
       <div>
@@ -30,7 +35,7 @@ class Login extends Component {
             onChange={this.handleChange}
             placeholder="password"
           />
-          <button onClick={this.login}>Login</button>
+          <button onClick={this.handleLogin}>Login</button>
           // form onSubmit vs button onClick???
         </form>
       </div>

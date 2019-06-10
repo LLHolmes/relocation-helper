@@ -28,6 +28,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+## Use dotenv for API keys
+gem 'dotenv-rails'
+
 ## Use foreman for api/react server communication
 gem 'foreman', '~> 0.85.0'
 gem 'thor', '~> 0.19.1'

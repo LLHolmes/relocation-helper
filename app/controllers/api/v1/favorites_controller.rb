@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class Api::V1::FavoritesController < ApplicationController
   before_action :find_favorite, only: [:show, :update, :destroy]
 
   def index

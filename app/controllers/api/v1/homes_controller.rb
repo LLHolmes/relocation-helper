@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class Api::V1::HomesController < ApplicationController
   before_action :find_home, only: [:show, :update, :destroy]
 
   def index

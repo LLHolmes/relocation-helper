@@ -10,7 +10,7 @@ class UserPage extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token');
     if(token) {
-      fetch(baseUrl + '/user', {
+      fetch(baseUrl + '/api/v1/user', {
         headers: {
           Authorization: `Bearer ${token}`
         }

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def show_user
     render json: { name: current_user.name, email: current_user.email }

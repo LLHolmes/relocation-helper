@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include ActionController::HttpAuthentication::Token::ControllerMethods
   before_action :authenticate_user
 
   private
@@ -7,6 +8,14 @@ class ApplicationController < ActionController::API
     # if session[:user_id].nil?
     #   redirect_to :login
     # end
+    authenticate_or_request_with_http_token do |token|
+      begin
+        data = decode(token)
+        @current_user = User.find(data[0]["user_id"])
+      rescue JWT::DecodeError
+        render json: { authorized: false }, status: 401
+      end
+    end
   end
 
   def current_user

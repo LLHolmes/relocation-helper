@@ -6,7 +6,7 @@ class AuthController < ApplicationController
     if user && user.authenticate(params[:password])
       # Rails version:
       # session[:user_id] = user.id
-      token = encode({ id: id, name: name })
+      token = encode({ user_id: user.id })
       render json: { token: token, success: true }
     else
       # Rails version:

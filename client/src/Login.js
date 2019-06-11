@@ -23,7 +23,7 @@ class Login extends Component {
 
     // let url = "http://localhost:3000/login";
 
-    fetch(baseUrl + "/login", {
+    fetch(baseUrl + '/login', {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -15,8 +15,8 @@ class UserPage extends Component {
           Authorization: `Bearer ${token}`
         }
       })
-    }
-  }
+    };
+  };
 
   render() {
     return (

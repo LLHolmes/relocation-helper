@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// const baseUrl = "http://localhost:3000";
+const baseUrl = "http://localhost:3000";
 
 class Login extends Component {
   state = {
@@ -21,9 +21,9 @@ class Login extends Component {
       password: this.state.password
     };
 
-    let url = "http://localhost:3000/login";
+    // let url = "http://localhost:3000/login";
 
-    fetch(url, {
+    fetch(baseUrl + "/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",

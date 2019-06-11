@@ -15,6 +15,12 @@ class UserPage extends Component {
           Authorization: `Bearer ${token}`
         }
       })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          user: data
+        })
+      });
     };
   };
 

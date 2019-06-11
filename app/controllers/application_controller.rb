@@ -19,12 +19,14 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
+    @current_user ||= authenticate_user
     # @user ||= User.find(session[:user_id])
   end
 
   def secret_key
     'secret'
     # look into Rails application secret to generate secret
+    # ENV['TOKEN_AUTH_SECRET']
   end
 
   def encode(payload)

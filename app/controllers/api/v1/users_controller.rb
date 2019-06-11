@@ -1,7 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
   def show_user
-    render json: { name: current_user.name, email: current_user.email }
+    render json: current_user
+    # { name: current_user.name, email: current_user.email }
   end
 
   # def create

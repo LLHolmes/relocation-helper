@@ -3,7 +3,6 @@ class HomesController < ApplicationController
 
   def index
     @homes = current_user.homes
-    binding.pry
     render json: @homes
   end
 

@@ -3,17 +3,17 @@ class Api::V1::FavoritesController < ApplicationController
 
   def index
     @favorites = current_user.favorites
-    render json: @favorites
+    render json: @favorites, status: 200
   end
 
   def show
-    render json: @favorite
+    render json: @favorite, status: 200
   end
 
   def create
     @favorite = current_user.favorites.build(favorite_params)
     if @favorite.save
-      render json: @favorite
+      render json: @favorite, status: 201
     else
       render json: { error: "Unable to favorite this home" }, status: 400
     end

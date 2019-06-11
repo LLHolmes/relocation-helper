@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-// const baseUrl = "http://localhost:3001";
+// const baseUrl = "http://localhost:3000";
 
 class Login extends Component {
   state = {
-    username: '',
-    password: ''
+    email: '',
+    password: '',
+    error: ''
   };
 
   handleChange = event => {
@@ -16,11 +17,11 @@ class Login extends Component {
     event.preventDefault();
 
     let params = {
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password
     };
 
-    let url = "http://localhost:3001/login";
+    let url = "http://localhost:3000/login";
 
     fetch(url, {
       method: "POST",
@@ -32,8 +33,12 @@ class Login extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      // localStorage.setItem("token": data.token);
+      if(data.success) {
+        localStorage.setItem("token", data.token);
+        this.setState({ error: "" });
+      } else {
+        this.setState({ error: "Invalid username or password" })
+      }
       // this.props.logIn();
     });
   };
@@ -44,10 +49,10 @@ class Login extends Component {
         <form>
           <input
             type="text"
-            name="username"
-            value={this.state.username}
+            name="email"
+            value={this.state.email}
             onChange={this.handleChange}
-            placeholder="username"
+            placeholder="email"
           />
           <input
             type="text"
@@ -59,6 +64,7 @@ class Login extends Component {
           <button onClick={this.handleLogin}>Login</button>
           { /* form onSubmit vs button onClick??? */ }
         </form>
+        <span style={{ color: "red" }}>{this.state.error}</span>
       </div>
     );
   };

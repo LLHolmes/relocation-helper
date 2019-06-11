@@ -24,9 +24,10 @@ class ApplicationController < ActionController::API
   end
 
   def secret_key
-    'secret'
+    # binding.pry
+    # 'secret'
     # look into Rails application secret to generate secret
-    # ENV['TOKEN_AUTH_SECRET']
+    ENV['TOKEN_AUTH_SECRET']
   end
 
   def encode(payload)

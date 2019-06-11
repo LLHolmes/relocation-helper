@@ -4,7 +4,7 @@ Specs:
 [ ] - The code is written in ES6 as much as possible
 [X] - create-react-app was used to create your React app
     (Created client folder on Rails based API using create-react-app.)
-[ ] - There is 1 HTML page to render
+[X] - There is 1 HTML page to render
 [ ] - There are 2 container components
 [ ] - There are 5 stateless components
 [ ] - There are 3 routes

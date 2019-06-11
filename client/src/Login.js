@@ -21,8 +21,6 @@ class Login extends Component {
       password: this.state.password
     };
 
-    // let url = "http://localhost:3000/login";
-
     fetch(baseUrl + '/login', {
       method: "POST",
       headers: {
@@ -39,7 +37,7 @@ class Login extends Component {
       } else {
         this.setState({ error: "Invalid username or password" })
       }
-      // this.props.logIn();
+      // this.props.login();
     });
   };
 
@@ -62,7 +60,6 @@ class Login extends Component {
             placeholder="password"
           />
           <button onClick={this.handleLogin}>Login</button>
-          { /* form onSubmit vs button onClick??? */ }
         </form>
         <span style={{ color: "red" }}>{this.state.error}</span>
       </div>

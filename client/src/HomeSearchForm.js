@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const baseUrl = "http://localhost:3000";
+// const baseUrl = "http://localhost:3000";
 
-class HomeSearch extends Component {
+class HomeSearchForm extends Component {
   state = {
     street: '',
     cityState: '',
@@ -17,6 +17,8 @@ class HomeSearch extends Component {
     event.preventDefault();
 
     let params = this.state;
+
+    ///fetch somehow from zillow here
   };
 
   render() {
@@ -52,4 +54,4 @@ class HomeSearch extends Component {
   };
 };
 
-export default HomeSearch;
+export default HomeSearchForm;

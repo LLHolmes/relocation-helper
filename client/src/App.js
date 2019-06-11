@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './Login';
 import UserPage from './UserPage';
+import HomeSearch from './HomeSearch';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <HomeSearch />
         <Login />
         <UserPage />
       </header>

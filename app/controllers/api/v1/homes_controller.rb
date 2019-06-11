@@ -3,17 +3,17 @@ class Api::V1::HomesController < ApplicationController
 
   def index
     @homes = current_user.homes
-    render json: @homes
+    render json: @homes, status: 200
   end
 
   def show
-    render json: @home
+    render json: @home, status: 200
   end
 
   def create
     @home = current_user.homes.build(home_params)
     if @home.save
-      render json: @home
+      render json: @home, status: 201
     else
       render json: { error: "Unable to save this home" }, status: 400
     end
@@ -21,7 +21,7 @@ class Api::V1::HomesController < ApplicationController
 
   def update
     if @home.update(home_params)
-      render json: @home
+      render json: @home, status: 202
     else
       render json: { error: "Unable to edit this home" }, status: 400
     end

@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import searchReducer from './reducers/searches';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+
+let store = createStore(searchReducer)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

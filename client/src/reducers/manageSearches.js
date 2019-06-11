@@ -1,4 +1,4 @@
-export default function searchReducer(state = { houses: [], loading: false }, action) {
+export default function manageSearches(state = { homes: [], loading: false }, action) {
   switch (action.type){
     default:
     return state;

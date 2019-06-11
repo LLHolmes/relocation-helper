@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import searchReducer from './reducers/searches';
+import rootReducer from './reducers/rootReducer';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 
-let store = createStore(searchReducer)
+let store = createStore(rootReducer)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

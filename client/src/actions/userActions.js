@@ -1,4 +1,5 @@
 const baseUrl = 'http://localhost:3000';
+const apiBaseUrl = baseUrl + '/api/v1'
 
 export const setCurrentUser = user => {
   return {
@@ -14,6 +15,29 @@ export const clearCurrentUser = user => {
 }
 
 // asynchronous action creators
+export const signupUser = data => {
+  return dispatch => {
+    return fetch(apiBaseUrl + '/signup', {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(setCurrentUser(data))
+      }
+    })
+    .catch(console.log)
+  }
+}
+
 export const loginUser = data => {
   return dispatch => {
     return fetch(baseUrl + '/login', {

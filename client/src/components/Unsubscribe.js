@@ -9,7 +9,6 @@ const Unsubscribe = ({ unsubscribeUser }) => {
       <form onSubmit={ unsubscribeUser }>
         <input type="submit" value="Delete Account" />
       </form>
-      {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>
   );
 }

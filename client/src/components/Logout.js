@@ -9,7 +9,6 @@ const Logout = ({ logoutUser }) => {
       <form onSubmit={ logoutUser }>
         <input type="submit" value="Logout" />
       </form>
-      {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>
   );
 }

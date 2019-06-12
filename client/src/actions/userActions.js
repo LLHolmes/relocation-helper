@@ -7,10 +7,17 @@ export const setCurrentUser = user => {
   }
 }
 
+export const clearCurrentUser = user => {
+  return {
+    type: "CLEAR_CURRENT_USER"
+  }
+}
+
 // asynchronous action creators
 export const loginUser = data => {
   return dispatch => {
     return fetch(baseUrl + '/login', {
+      credentials: "include",
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,7 +34,16 @@ export const loginUser = data => {
       }
     })
     .catch(console.log)
-    
+  }
+}
+
+export const logoutUser = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser());
+    return fetch(baseUrl + '/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }
 
@@ -39,10 +55,11 @@ export const getCurrentUser = () => {
       headers: {
         "content-type": "application/json",
         Accept: "application/json"
-      },
+      }
     })
     .then(response => response.json())
     .then(data => {
+      dispatch(setCurrentUser(data))
       if (data.error) {
         alert(data.error)
       } else {
@@ -52,18 +69,3 @@ export const getCurrentUser = () => {
     .catch(console.log)
   }
 }
-
-
-
-
-
-// .then(response => response.json())
-// .then(data => {
-//   if(data.success) {
-//     localStorage.setItem("token", data.token);
-//     this.setState({ error: "" });
-//   } else {
-//     this.setState({ error: "Invalid username or password" })
-//   }
-//   // this.props.login();
-// });

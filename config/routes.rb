@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post '/login', to: 'auth#create'
+  get '/get_current_user', to: 'auth#get_current_user'
   # get '/user', to: 'users#show_user'
   # # resources :users
   # resources :homes, except: [:new, :edit]

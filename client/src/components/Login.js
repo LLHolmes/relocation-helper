@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/formLoginActions.js'
+import { loginUser } from '../actions/userActions.js'
 
 // const baseUrl = "http://localhost:3000";
 
-const Login = ({ formLogin, updateLoginForm }) => {
+const Login = ({ formLogin, updateLoginForm, loginUser }) => {
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -14,7 +15,7 @@ const Login = ({ formLogin, updateLoginForm }) => {
     };
     updateLoginForm(updatedFormInfo)
   };
-  
+
   // state = {
   //   email: '',
   //   password: '',
@@ -52,10 +53,14 @@ const Login = ({ formLogin, updateLoginForm }) => {
   //     // this.props.login();
   //   });
   // };
+  const handleSubmit = event => {
+    event.preventDefault();
+    loginUser(formLogin)
+  }
 
   return (
     <div>
-      <form onSubmit={undefined}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="email"
@@ -83,4 +88,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateLoginForm })(Login);
+export default connect(mapStateToProps, { updateLoginForm, loginUser })(Login);

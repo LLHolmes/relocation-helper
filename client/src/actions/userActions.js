@@ -44,6 +44,12 @@ export const logoutUser = () => {
       credentials: "include",
       method: "DELETE"
     })
+    .then(response => response.json())
+    .then(data => {
+      if (data.notice) {
+        alert(data.notice)
+      }
+    })
   }
 }
 

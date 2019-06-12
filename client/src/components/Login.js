@@ -1,70 +1,86 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { updateLoginForm } from '../actions/formLoginActions.js'
 
-const baseUrl = "http://localhost:3000";
+// const baseUrl = "http://localhost:3000";
 
-class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-    error: ''
-  };
+const Login = ({ formLogin, updateLoginForm }) => {
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleLogin = event => {
-    event.preventDefault();
-
-    let params = {
-      email: this.state.email,
-      password: this.state.password
+  const handleChange = event => {
+    const { name, value } = event.target;
+    const updatedFormInfo = {
+      ...formLogin,
+      [name]: value
     };
-
-    fetch(baseUrl + '/login', {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(params)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.success) {
-        localStorage.setItem("token", data.token);
-        this.setState({ error: "" });
-      } else {
-        this.setState({ error: "Invalid username or password" })
-      }
-      // this.props.login();
-    });
+    updateLoginForm(updatedFormInfo)
   };
+  
+  // state = {
+  //   email: '',
+  //   password: '',
+  //   error: ''
+  // };
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleLogin}>
-          <input
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            placeholder="email"
-          />
-          <input
-            type="text"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            placeholder="password"
-          />
-          <input type="submit" value="Login" />
-        </form>
-        <span style={{ color: "red" }}>{this.state.error}</span>
-      </div>
-    );
-  };
+  // handleChange = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
+  //
+  // handleLogin = event => {
+  //   event.preventDefault();
+  //
+  //   let params = {
+  //     email: this.state.email,
+  //     password: this.state.password
+  //   };
+  //
+  //   fetch(baseUrl + '/login', {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       Accept: "application/json"
+  //     },
+  //     body: JSON.stringify(params)
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     if(data.success) {
+  //       localStorage.setItem("token", data.token);
+  //       this.setState({ error: "" });
+  //     } else {
+  //       this.setState({ error: "Invalid username or password" })
+  //     }
+  //     // this.props.login();
+  //   });
+  // };
+
+  return (
+    <div>
+      <form onSubmit={undefined}>
+        <input
+          type="text"
+          name="email"
+          value={formLogin.email}
+          onChange={handleChange}
+          placeholder="email"
+        />
+        <input
+          type="text"
+          name="password"
+          value={formLogin.password}
+          onChange={handleChange}
+          placeholder="password"
+        />
+        <input type="submit" value="Login" />
+      </form>
+      {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
+    </div>
+  );
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    formLogin: state.formLogin
+  }
+}
+
+export default connect(mapStateToProps, { updateLoginForm })(Login);

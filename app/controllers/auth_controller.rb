@@ -22,7 +22,7 @@ class AuthController < ApplicationController
     if logged_in?
       render json: current_user
     else
-      render json: { notice: "No one logged in" }, status: 401
+      render json: { notice: "No one logged in" }, status: 202
     end
   end
 

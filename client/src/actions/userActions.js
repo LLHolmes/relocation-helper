@@ -18,15 +18,42 @@ export const loginUser = data => {
       },
       body: JSON.stringify(data)
     })
-
-
-
-
-
-
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(setCurrentUser(data))
+      }
+    })
+    .catch(console.log)
+    
   }
-
 }
+
+export const getCurrentUser = () => {
+  return dispatch => {
+    return fetch(baseUrl + '/get_current_user', {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(setCurrentUser(data))
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+
 
 
 

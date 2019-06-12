@@ -21,8 +21,8 @@ class AuthController < ApplicationController
   def get_current_user
     if logged_in?
       render json: current_user
-    # else
-    #   render json: { error: "No one logged in" }, status: 401
+    else
+      render json: { notice: "No one logged in" }, status: 401
     end
   end
 

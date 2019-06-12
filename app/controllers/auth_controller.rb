@@ -26,4 +26,9 @@ class AuthController < ApplicationController
     end
   end
 
+  def destroy
+    session.clear
+    render json: { notice: "Successfully logged out"}, status: 202
+  end
+
 end

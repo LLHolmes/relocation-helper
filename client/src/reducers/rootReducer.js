@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import manageSearches from './manageSearches'
+import search from './searchReducer'
 import manageHomes from './manageHomes'
 import manageFavorites from './manageFavorites'
 
 const rootReducer = combineReducers({
-  search: manageSearches,
+  search,
   user_homes: manageHomes,
   user_favorites: manageFavorites
 });

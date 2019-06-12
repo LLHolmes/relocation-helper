@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   # http://localhost:3000/api/v1/resource
   namespace :api do
     namespace :v1 do
-      get '/user', to: 'users#show_user'
+      # get '/user', to: 'users#show_user'
       resources :homes, except: [:new, :edit]
       resources :favorites, except: [:new, :edit, :update]
+      post '/signup', to: 'users#create'
+      delete '/unsubscribe', to: 'users#destroy'
     end
   end
 end

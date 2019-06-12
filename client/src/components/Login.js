@@ -44,7 +44,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleLogin}>
           <input
             type="text"
             name="email"
@@ -59,7 +59,7 @@ class Login extends Component {
             onChange={this.handleChange}
             placeholder="password"
           />
-          <button onClick={this.handleLogin}>Login</button>
+          <input type="submit" value="Login" />
         </form>
         <span style={{ color: "red" }}>{this.state.error}</span>
       </div>

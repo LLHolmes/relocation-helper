@@ -25,7 +25,7 @@ class HomeSearchForm extends Component {
     return (
       <div>
         Search homes:
-        <form>
+        <form onSubmit={this.handleLogin}>
           <input
             type='text'
             name='street'
@@ -47,7 +47,7 @@ class HomeSearchForm extends Component {
             onChange={this.handleChange}
             placeholder='zipcode'
             />
-          <button type='submit' onClick={this.handleSearch}>Search</button>
+          <input type="submit" value="Search" />
         </form>
       </div>
     );

@@ -1,7 +1,7 @@
 class AuthController < ApplicationController
   skip_before_action :authenticate_user, only: [:login]
 
-  def login
+  def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       # Rails version:

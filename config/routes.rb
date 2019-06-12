@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/login', to: 'auth#login'
+  post '/login', to: 'auth#create'
   # get '/user', to: 'users#show_user'
   # # resources :users
   # resources :homes, except: [:new, :edit]

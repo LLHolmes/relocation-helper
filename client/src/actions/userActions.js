@@ -38,6 +38,27 @@ export const signupUser = data => {
   }
 }
 
+export const unsubscribeUser = () => {
+  console.log("unsubscribing user")
+  debugger
+  return dispatch => {
+    // dispatch(clearCurrentUser())
+    return fetch(apiBaseUrl + '/unsubscribe', {
+      credentials: "include",
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.notice) {
+        dispatch(clearCurrentUser())
+        alert(data.notice)
+      } else if (data.error) {
+        alert(data.error)
+      }
+    })
+  }
+}
+
 export const loginUser = data => {
   return dispatch => {
     return fetch(baseUrl + '/login', {
@@ -78,6 +99,7 @@ export const logoutUser = () => {
 }
 
 export const getCurrentUser = () => {
+  console.log("getting user")
   return dispatch => {
     return fetch(baseUrl + '/get_current_user', {
       credentials: "include",
@@ -89,7 +111,11 @@ export const getCurrentUser = () => {
     })
     .then(response => response.json())
     .then(data => {
-      dispatch(setCurrentUser(data))
+      if (data.notice) {
+        dispatch(setCurrentUser(null))
+      } else {
+        dispatch(setCurrentUser(data))
+      }
     })
     .catch(console.log)
   }

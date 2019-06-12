@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 
-const baseUrl = 'http://localhost:3000';
+// const baseUrl = 'http://localhost:3000';
 
 class UserPage extends Component {
   state = {
     user:null
   }
 
-  componentDidMount() {
-    let token = localStorage.getItem('token');
-    if(token) {
-      fetch(baseUrl + '/api/v1/user', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          user: data
-        })
-      });
-    };
-  };
+  // componentDidMount() {
+  //   let token = localStorage.getItem('token');
+  //   if(token) {
+  //     fetch(baseUrl + '/api/v1/user', {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.setState({
+  //         user: data
+  //       })
+  //     });
+  //   };
+  // };
 
   render() {
     return (

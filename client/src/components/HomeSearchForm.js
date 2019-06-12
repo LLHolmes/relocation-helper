@@ -16,7 +16,7 @@ class HomeSearchForm extends Component {
   handleSearch = event => {
     event.preventDefault();
 
-    let params = this.state;
+    // let params = this.state;
 
     ///fetch somehow from zillow here
   };

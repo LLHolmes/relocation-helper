@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/userActions.js'
 import './stylesheets/App.css';
+import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import Unsubscribe from './components/Unsubscribe';
-import Login from './components/Login';
-import Logout from './components/Logout';
 // import UserPage from './components/UserPage';
 import HomeSearchForm from './components/HomeSearchForm';
 
@@ -18,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.props.user ? <Logout /> : <Login />}
+        <NavBar />
         <Signup />
         <Unsubscribe />
         <HomeSearchForm />
@@ -27,10 +26,4 @@ class App extends Component {
   };
 };
 
-const mapStateToProps = ({ user }) => {
-  return {
-    user
-  }
-}
-
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);

@@ -1,4 +1,9 @@
-export default (state = { search: {}, comps: {} }, action) => {
+const initialState = {
+  search: {},
+  comps: {}
+};
+
+export default (state = initialState, action) => {
   switch (action.type){
     case "SEARCH_SUCCESS":
       return {

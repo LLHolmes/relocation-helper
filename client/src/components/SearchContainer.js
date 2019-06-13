@@ -1,24 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm.js';
-// import UserHomeCard from './UserHomeCard.js';
+import UserHomeCard from './UserHomeCard.js';
 
-const SearchContainer = ({ state }) => {
-  console.log(state)
+const SearchContainer = ({ search }) => {
+  console.log(search)
   return (
     <div className="SearchContainer">
       <SearchForm />
-      { 1+1 === 2 ? "has search stored" : 'no search stored'}
+      { Object.keys(search).length === 0 ? '' : <UserHomeCard home={search}/>}
     </div>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ search }) => {
   return {
-    state: state
+    search: search.search
   }
 }
 
 export default connect(mapStateToProps)(SearchContainer);
-
-// <UserHomeCard home={search}/>

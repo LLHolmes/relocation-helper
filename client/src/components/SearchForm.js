@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { updateSearchForm } from '../actions/formSearchActions.js';
 import { submitSearch } from '../actions/searchActions.js';
 
-const HomeSearchForm = ({ formSearch, updateSearchForm, submitSearch }) => {
+const SearchForm = ({ formSearch, updateSearchForm, submitSearch }) => {
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -56,4 +56,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { updateSearchForm, submitSearch })(HomeSearchForm);
+export default connect(mapStateToProps, { updateSearchForm, submitSearch })(SearchForm);

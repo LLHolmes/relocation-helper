@@ -7,7 +7,7 @@ class UserHomeList extends Component {
 
   componentDidMount() {
     // IS THIS RE-FETCHING EVERYTIME??? SHOULD BE SAVED IN STORE...
-    console.log(this.props.userHomes)
+    // console.log(this.props.userHomes)
     if(this.props.userHomes.length === 0){
       this.props.homes.forEach(home => {
         this.props.searchUserHomes(home);

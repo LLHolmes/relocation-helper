@@ -8,11 +8,11 @@ class UserHomeList extends Component {
   componentDidMount() {
     this.props.homes.forEach(home => {
       this.props.searchUserHomes(home);
-    })
+    });
   };
 
   render() {
-    const showUserHomes = this.props.userHomes.map((home, index) => 
+    const showUserHomes = this.props.userHomes.map((home, index) =>
       <UserHomeCard home={home} key={index} />
     );
 
@@ -22,13 +22,13 @@ class UserHomeList extends Component {
       </div>
     );
   };
-}
+};
 
 const mapStateToProps = state => {
   return {
     homes: state.user.homes,
     userHomes: state.userHomes
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { searchUserHomes })(UserHomeList);

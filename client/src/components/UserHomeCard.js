@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UserHomeCard = props => {
-  // console.log(props)
+const UserHomeCard = ({ home }) => {
+  console.log(home)
   return (
     <div className="UserHomeCard">
       Individual Home

@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SearchMemberContainer from './SearchMemberContainer.js'
+import SearchMemberContainer from './SearchMemberContainer.js';
+import SearchGenericContainer from './SearchGenericContainer.js';
 
 const MainContainer = ({ user }) => {
 
   return (
     <div className="MainContainer">
-      { user ? <SearchMemberContainer /> : 'Generic version of search'}
+      { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
       <div>HomeListContainer</div>
     </div>
   );

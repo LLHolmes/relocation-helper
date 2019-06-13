@@ -7,7 +7,7 @@ import Unsubscribe from './components/Unsubscribe';
 import Login from './components/Login';
 import Logout from './components/Logout';
 // import UserPage from './components/UserPage';
-// import HomeSearchForm from './components/HomeSearchForm';
+import HomeSearchForm from './components/HomeSearchForm';
 
 class App extends Component {
 
@@ -21,6 +21,7 @@ class App extends Component {
         { this.props.user ? <Logout /> : <Login />}
         <Signup />
         <Unsubscribe />
+        <HomeSearchForm />
       </div>
     );
   };

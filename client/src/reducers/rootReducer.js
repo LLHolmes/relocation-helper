@@ -5,6 +5,7 @@ import userHomes from './userHomesReducer'
 import userFavorites from './userFavoritesReducer'
 import formLogin from './formLoginReducer'
 import formSignup from './formSignupReducer'
+import formSearch from './formSearchReducer'
 
 const rootReducer = combineReducers({
   search,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   userHomes,
   userFavorites,
   formSignup,
-  formLogin
+  formLogin,
+  formSearch
 });
 
 export default rootReducer;

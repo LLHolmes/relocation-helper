@@ -39,8 +39,6 @@ export const signupUser = data => {
 }
 
 export const unsubscribeUser = () => {
-  console.log("unsubscribing user")
-  debugger
   return dispatch => {
     // dispatch(clearCurrentUser())
     return fetch(apiBaseUrl + '/unsubscribe', {
@@ -99,7 +97,6 @@ export const logoutUser = () => {
 }
 
 export const getCurrentUser = () => {
-  console.log("getting user")
   return dispatch => {
     return fetch(baseUrl + '/get_current_user', {
       credentials: "include",

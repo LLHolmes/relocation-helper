@@ -8,7 +8,7 @@ const NavBar = ({ user }) => {
 
   return (
     <div className="NavBar">
-      { user ? `Welcome ${user.name}` : ''}
+      <strong>{ user ? `Welcome ${user.name}` : ''}</strong>
       { user ? <Logout /> : <><Login />SUB</>}
     </div>
   );

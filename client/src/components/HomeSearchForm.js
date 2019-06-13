@@ -1,50 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { updateSearchForm } from '../actions/formSearchActions.js';
+import { submitSearch } from '../actions/searchActions.js';
 
-// const baseUrl = "http://localhost:3000";
+const HomeSearchForm = ({ formSearch, updateSearchForm, submitSearch }) => {
 
-class HomeSearchForm extends Component {
-  state = {
-    street: '',
-    cityState: '',
-    zipcode: ''
+  const handleChange = event => {
+    const { name, value } = event.target;
+    const updatedFormInfo = {
+      ...formSearch,
+      [name]: value
+    };
+    updateSearchForm(updatedFormInfo);
   };
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSearch = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-
-    // let params = this.state;
-
-    ///fetch somehow from zillow here
+    submitSearch(formSearch);
   };
 
   render() {
     return (
       <div>
         Search homes:
-        <form onSubmit={this.handleLogin}>
+        <form onSubmit={handleSubmit}>
           <input
             type='text'
             name='street'
-            value={this.state.street}
-            onChange={this.handleChange}
+            value={formSearch.street}
+            onChange={handleChange}
             placeholder='street address'
             />
           <input
             type='text'
             name='cityState'
-            value={this.state.cityState}
-            onChange={this.handleChange}
+            value={formSearch.cityState}
+            onChange={handleChange}
             placeholder='city, state'
             />
           <input
             type='text'
             name='zipcode'
-            value={this.state.zipcode}
-            onChange={this.handleChange}
+            value={formSearch.zipcode}
+            onChange={handleChange}
             placeholder='zipcode'
             />
           <input type="submit" value="Search" />
@@ -54,4 +52,8 @@ class HomeSearchForm extends Component {
   };
 };
 
-export default HomeSearchForm;
+const mapStateToProps = state => {
+  formSearch: state.formSearch
+};
+
+export default connect(mapStateToProps, { updateSearchForm, submitSearch })(HomeSearchForm);

@@ -22,3 +22,14 @@
   /* text-align: right; */
   /* align-items: right; */
 }
+
+
+.col3 {
+  column-count: 3;
+  column-rule: 1px solid grey;
+  column-fill: auto;
+}
+
+.column {
+  margin: auto
+}

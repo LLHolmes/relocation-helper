@@ -1,14 +1,14 @@
 import React from 'react';
-import SearchForm from './SearchForm.js';
+import SearchContainer from './SearchContainer.js';
 
 const SearchGenericContainer = () => {
 
   return (
     <div className="SearchGenericContainer">
-      <SearchForm />
+      <SearchContainer />
     </div>
   );
-  
+
 };
 
 export default SearchGenericContainer;

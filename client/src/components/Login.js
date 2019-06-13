@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateLoginForm } from '../actions/formLoginActions.js'
-import { loginUser } from '../actions/userActions.js'
+import { updateLoginForm } from '../actions/formLoginActions.js';
+import { loginUser } from '../actions/userActions.js';
 
 const Login = ({ formLogin, updateLoginForm, loginUser }) => {
 
@@ -11,13 +11,13 @@ const Login = ({ formLogin, updateLoginForm, loginUser }) => {
       ...formLogin,
       [name]: value
     };
-    updateLoginForm(updatedFormInfo)
+    updateLoginForm(updatedFormInfo);
   };
-  
+
   const handleSubmit = event => {
     event.preventDefault();
-    loginUser(formLogin)
-  }
+    loginUser(formLogin);
+  };
 
   return (
     <div>
@@ -41,12 +41,12 @@ const Login = ({ formLogin, updateLoginForm, loginUser }) => {
       {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {
     formLogin: state.formLogin
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { updateLoginForm, loginUser })(Login);

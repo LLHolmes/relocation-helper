@@ -1,6 +1,6 @@
 export default (state = [], action) => {
   switch (action.type){
-    case "SEARCH_SUCCESS":
+    case "SEARCH_USERHOME_SUCCESS":
       return [
         ...state,
         action.data

@@ -4,7 +4,7 @@ const zillowSearchBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.
 
 export const setSearch = data => {
   return {
-    type: "SEARCH_SUCCESS",
+    type: "SEARCH_USERHOME_SUCCESS",
     data
   }
 }

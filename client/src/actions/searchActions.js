@@ -57,10 +57,13 @@ export const submitSearch = search => {
         searchedHome.lastSoldPrice = xml.getElementsByTagName("lastSoldPrice")[0].innerHTML;
         searchedHome.zestimate = xml.getElementsByTagName("amount")[0].innerHTML;
 
+        console.log(searchedHome)
         dispatch(setSearch(searchedHome))
         dispatch(resetSearchForm())
       })
-      .catch(alert("Something went wrong. Please try again."))
+      .catch(error => {
+        alert("Something went wrong. Please try again.")
+      })
     };
   } else {
     alert("Please fill out your street address.");

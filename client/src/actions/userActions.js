@@ -90,7 +90,7 @@ export const logoutUser = () => {
     .then(response => response.json())
     .then(data => {
       if (data.notice) {
-        alert(data.notice)
+        console.log(data.notice)
       }
     })
   }

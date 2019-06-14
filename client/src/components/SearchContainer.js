@@ -4,7 +4,6 @@ import SearchForm from './SearchForm.js';
 import UserHomeCard from './UserHomeCard.js';
 
 const SearchContainer = ({ search }) => {
-  console.log(search)
   return (
     <div className="SearchContainer">
       <SearchForm />

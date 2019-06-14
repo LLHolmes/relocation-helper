@@ -9,11 +9,19 @@ export const setSearch = data => {
   }
 }
 
+export const removeUserSearchedHome = id => {
+  return {
+    type: "REMOVE_USER_SEARCHED_HOME",
+    id
+  }
+}
 
-// asynchronous action creators
+
+// asynchronous action creators (zillow)
 export const searchUserHomes = search => {
 
   let searchedHome = {
+    apiId: search.id,
     zpid: '',
     link: '',
     street: '',

@@ -1,3 +1,5 @@
+import { removeUserSearchedHome } from './userHomesActions.js';
+
 const baseUrl = 'http://localhost:3000';
 const apiBaseUrl = baseUrl + '/api/v1'
 
@@ -13,7 +15,22 @@ export const clearCurrentUser = user => {
     type: "CLEAR_CURRENT_USER"
   }
 }
+// synchronous action creators (user's homes)
+export const setNewUserHome = home => {
+  return {
+    type: "SET_NEW_USER_API_HOME",
+    home
+  }
+}
 
+export const removeUserApiHome = id => {
+  return {
+    type: "REMOVE_USER_API_HOME",
+    id
+  }
+}
+
+////////////////////////////////////////////
 // asynchronous action creators
 export const signupUser = data => {
   return dispatch => {
@@ -115,5 +132,55 @@ export const getCurrentUser = () => {
       }
     })
     .catch(console.log)
+  }
+}
+
+// asynchronous action creators (api user's homes)
+export const createHome = data => {
+  return dispatch => {
+    return fetch(apiBaseUrl + '/homes', {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(setNewUserHome(data))
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+export const deleteHome = (apiId) => {
+  console.log("deleting home...")
+  console.log(apiId)
+  return dispatch => {
+    return fetch(apiBaseUrl + '/deleting', {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(apiId)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(removeUserApiHome(apiId))
+        dispatch(removeUserSearchedHome(apiId))
+      }
+    })
   }
 }

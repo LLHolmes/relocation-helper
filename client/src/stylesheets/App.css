@@ -52,10 +52,14 @@
 
 .uneven-end {
   float: left;
-  width: 25%;
+  width: 24%;
   margin: auto;
   font-size: 14px;
   color: #61dafb;
+  background-color: #21252b;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 2px;
 }
 
 .uneven-middle {

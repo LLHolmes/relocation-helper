@@ -1,6 +1,6 @@
 const initialState = {
   search: {},
-  comps: {}
+  comps: []
 };
 
 export default (state = initialState, action) => {
@@ -9,6 +9,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         search: action.data
+      };
+    case "COMP_SUCCESS":
+      console.log("in Reducer: COMP_SUCCESS")
+      console.log(action.data)
+      return {
+        ...state,
+        comps: action.data
       };
     default:
       return state;

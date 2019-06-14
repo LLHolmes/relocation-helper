@@ -1,3 +1,3 @@
 class HomeSerializer < ActiveModel::Serializer
-  attributes :street, :cityState, :zipcode
+  attributes :id, :street, :cityState, :zipcode
 end

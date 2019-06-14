@@ -159,11 +159,14 @@ export const createHome = data => {
   }
 }
 
-export const deleteHome = (apiId) => {
+
+
+export const deleteHome = apiId => {
   console.log("deleting home...")
-  console.log(apiId)
   return dispatch => {
-    return fetch(apiBaseUrl + '/deleting', {
+    console.log("CAN'T GET HERE!!!")
+    return fetch(apiBaseUrl + `/home`, {
+      // do i need to add /home/:id ?  (tried, but still couldn't get in)
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -174,7 +177,6 @@ export const deleteHome = (apiId) => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       if (data.error) {
         alert(data.error)
       } else {

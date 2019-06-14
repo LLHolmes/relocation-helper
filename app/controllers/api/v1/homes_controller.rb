@@ -28,6 +28,7 @@ class Api::V1::HomesController < ApplicationController
   end
 
   def destroy
+    binding.pry
     if @home.destroy
       status: 202
     else

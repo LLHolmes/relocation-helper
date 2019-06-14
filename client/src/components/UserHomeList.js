@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchUserHomes } from '../actions/userHomesActions.js';
-import { deleteHome } from '../actions/userActions.js';
+import { deleteHome } from '../actions/homeActions.js';
 import UserHomeCard from './UserHomeCard.js';
 
 class UserHomeList extends Component {

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # get '/user', to: 'users#show_user'
-      resources :homes, except: [:new, :edit]
-      resources :favorites, except: [:new, :edit, :update]
+      resources :homes, only: [:create, :destroy]
+      # resources :favorites, except: [:new, :edit, :update]
       post '/signup', to: 'users#create'
       delete '/unsubscribe', to: 'users#destroy'
     end

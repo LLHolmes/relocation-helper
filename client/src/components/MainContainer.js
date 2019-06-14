@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SearchMemberContainer from './SearchMemberContainer.js';
 import SearchGenericContainer from './SearchGenericContainer.js';
+import CompList from './CompList.js';
 
 const MainContainer = ({ user }) => {
 
   return (
     <div className="MainContainer">
       { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
-      <div>HomeListContainer</div>
+      <div>Comps List</div>
+      <CompList />
     </div>
   );
 }

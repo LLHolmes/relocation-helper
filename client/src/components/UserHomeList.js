@@ -7,19 +7,15 @@ import UserHomeCard from './UserHomeCard.js';
 class UserHomeList extends Component {
 
   componentDidMount() {
-    // IS THIS RE-FETCHING EVERYTIME??? SHOULD BE SAVED IN STORE...
-    // console.log(this.props.userHomes)
-    if(this.props.userHomes.length === 0){
-      this.props.homes.forEach(home => {
-        this.props.searchUserHomes(home);
-      });
-    };
+    this.props.homes.forEach(home => {
+      this.props.searchUserHomes(home);
+    });
   };
 
   render() {
-    const showUserHomes = this.props.userHomes.map(home =>
-      <UserHomeCard home={home} key={home.apiId} deleteHome={deleteHome} />
-    );
+    const showUserHomes = this.props.userHomes.map(home => {
+      return <UserHomeCard key={home.apiId} home={home} deleteHome={() => this.props.deleteHome(home.apiId)} />
+    });
 
     return (
       <div className="UserHomeList">

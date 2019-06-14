@@ -14,8 +14,6 @@ export default (state = null, action) => {
         homes:[...state.homes, action.home]
       };
     case "REMOVE_USER_API_HOME":
-      console.log("in user reducer, REMOVE_USER_API_HOME")
-      console.log(action.id)
       return {
         ...state,
         homes: state.homes.filter(home => home.id !== action.id)

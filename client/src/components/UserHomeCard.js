@@ -3,7 +3,7 @@ import React from 'react';
 const UserHomeCard = ({ home, deleteHome }) => {
   return (
     <fieldset className="UserHomeCard">
-      <legend><h1 className="columnClear">{ home.street }, { home.city }, { home.state } { home.zipcode}</h1></legend>
+      <legend><h1 className="columnClear"><a href={home.link}>{ home.street }, { home.city }, { home.state } { home.zipcode}</a></h1></legend>
       <div className="col3">
         <p className="column">{ home.bedrooms } bed / { home.bathrooms } bath</p>
         <p className="column">{ home.sqFt } sqFt., { home.lotSize } lot</p>

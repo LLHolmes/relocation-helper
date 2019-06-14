@@ -28,9 +28,9 @@ class Api::V1::HomesController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    # binding.pry
     if @home.destroy
-      status: 202
+      render json: { notice: "Deleted this home" }, status: 202
     else
       render json: { error: "Unable to delete this home" }, status: 400
     end

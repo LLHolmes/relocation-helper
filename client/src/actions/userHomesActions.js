@@ -1,8 +1,12 @@
+////////////////////////////////////////////////////////////////////
+// ACTIONS TO HANDLE CALLS TO ZILLOW API FOR A USER'S SAVED HOMES //
+////////////////////////////////////////////////////////////////////
+
 const ZWSID = process.env.REACT_APP_ZWSID;
 
 const zillowSearchBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=${ZWSID}`
 
-export const setSearch = data => {
+export const setUserHomeSearch = data => {
   return {
     type: "SEARCH_USERHOME_SUCCESS",
     data
@@ -69,7 +73,7 @@ export const searchUserHomes = search => {
       searchedHome.lastSoldPrice = xml.getElementsByTagName("lastSoldPrice")[0].innerHTML;
       searchedHome.zestimate = xml.getElementsByTagName("amount")[0].innerHTML;
 
-      dispatch(setSearch(searchedHome))
+      dispatch(setUserHomeSearch(searchedHome))
     })
     .catch(error => {
       console.log(error)

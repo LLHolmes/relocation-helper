@@ -1,4 +1,6 @@
-import { removeUserSearchedHome } from './userHomesActions.js';
+/////////////////////////////////////////////////////////////////////
+// ACTIONS TO HANDLE A USER'S ACCOUNT & SESSION ON LOCAL RAILS API //
+/////////////////////////////////////////////////////////////////////
 
 const baseUrl = 'http://localhost:3000';
 const apiBaseUrl = baseUrl + '/api/v1'
@@ -30,7 +32,6 @@ export const removeUserApiHome = id => {
   }
 }
 
-////////////////////////////////////////////
 // asynchronous action creators
 export const signupUser = data => {
   return dispatch => {
@@ -132,57 +133,5 @@ export const getCurrentUser = () => {
       }
     })
     .catch(console.log)
-  }
-}
-
-// asynchronous action creators (api user's homes)
-export const createHome = data => {
-  return dispatch => {
-    return fetch(apiBaseUrl + '/homes', {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        alert(data.error)
-      } else {
-        dispatch(setNewUserHome(data))
-      }
-    })
-    .catch(console.log)
-  }
-}
-
-
-
-export const deleteHome = apiId => {
-  console.log("deleting home...")
-  return dispatch => {
-    console.log("CAN'T GET HERE!!!")
-    return fetch(apiBaseUrl + `/home`, {
-      // do i need to add /home/:id ?  (tried, but still couldn't get in)
-      credentials: "include",
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(apiId)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        alert(data.error)
-      } else {
-        dispatch(removeUserApiHome(apiId))
-        dispatch(removeUserSearchedHome(apiId))
-      }
-    })
   }
 }

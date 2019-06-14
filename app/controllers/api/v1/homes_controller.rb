@@ -28,9 +28,8 @@ class Api::V1::HomesController < ApplicationController
   end
 
   def destroy
-    temp_id = @home.id
     if @home.destroy
-      render json: { id: temp_id }, status: 202
+      status: 202
     else
       render json: { error: "Unable to delete this home" }, status: 400
     end

@@ -14,9 +14,12 @@ export const setSearch = data => {
 export const searchUserHomes = search => {
 
   let searchedHome = {
-    search,
     zpid: '',
     link: '',
+    street: '',
+    zipcode: '',
+    city: '',
+    state: '',
     latitude: '',
     longitude: '',
     assessmentYear: '',
@@ -41,6 +44,10 @@ export const searchUserHomes = search => {
     .then(xml => {
       searchedHome.zpid = xml.getElementsByTagName("zpid")[0].innerHTML;
       searchedHome.link = xml.getElementsByTagName("homedetails")[0].innerHTML;
+      searchedHome.street = xml.getElementsByTagName("street")[0].innerHTML;
+      searchedHome.zipcode = xml.getElementsByTagName("zipcode")[0].innerHTML;
+      searchedHome.city = xml.getElementsByTagName("city")[0].innerHTML;
+      searchedHome.state = xml.getElementsByTagName("state")[0].innerHTML;
       searchedHome.latitude = xml.getElementsByTagName("latitude")[0].innerHTML;
       searchedHome.longitude = xml.getElementsByTagName("longitude")[0].innerHTML;
       searchedHome.assessmentYear = xml.getElementsByTagName("taxAssessmentYear")[0].innerHTML;

@@ -43,7 +43,7 @@ const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
           onChange={handleChange}
           placeholder="password"
         />
-        <input type="submit" value="Login" />
+        <input type="submit" value="Sign Up" />
       </form>
       {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>

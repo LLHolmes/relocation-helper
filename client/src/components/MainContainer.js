@@ -9,7 +9,6 @@ const MainContainer = ({ user }) => {
   return (
     <div className="MainContainer">
       { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
-      <div>Comps List</div>
       <CompList />
     </div>
   );

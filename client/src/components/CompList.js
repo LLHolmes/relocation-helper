@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeComp } from '../actions/searchActions.js';
-import UserHomeCard from './UserHomeCard.js';
+import CompHomeCard from './CompHomeCard.js';
 
 class CompList extends Component {
 
-  // componentDidMount() {
-  //   this.props.homes.forEach(home => {
-  //     this.props.searchUserHomes(home);
-  //   });
-  // };
-
   render() {
-    console.log(this.props.comps)
     const showComps = this.props.comps.map(home => {
-      return <UserHomeCard key={home.zpid} home={home} removeComp={() => this.props.removeComp(home.zpid)} />
+      return <CompHomeCard key={home.zpid} home={home} removeComp={() => this.props.removeComp(home.zpid)} />
     });
 
     return (
       <div className="CompList">
+        { this.props.comps.length > 0 ? <h3  className="cardHolder">Comparable Homes</h3> : ''}
         { showComps }
       </div>
     );

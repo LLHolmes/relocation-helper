@@ -49,10 +49,11 @@ a {
   text-align: center;
 }
 
+.column {
+  margin: auto;
+}
+
 .uneven-col3 {
-  /* column-count: 3; */
-  /* column-fill: auto; */
-  /* float: left; */
   margin: 14px 0px 4px 0px;
   text-align: center;
 }
@@ -61,10 +62,6 @@ a {
   content: "";
   display: table;
   clear: both;
-}
-
-.column {
-  margin: auto;
 }
 
 .uneven-end {
@@ -83,6 +80,25 @@ a {
   float: left;
   width: 50%;
   margin: auto;
+}
+
+.CompHomeCard {
+  position: relative;
+}
+
+.compDelete {
+  float: left;
+  width: 5%;
+  margin: auto;
+  font-size: 14px;
+  color: #282c34;
+  background-color: #ba1027;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 strong {

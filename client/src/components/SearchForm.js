@@ -29,6 +29,7 @@ const SearchForm = ({ formSearch, updateSearchForm, submitSearch }) => {
           value={formSearch.street}
           onChange={handleChange}
           placeholder='street address'
+          required
           />
         <input
           type='text'

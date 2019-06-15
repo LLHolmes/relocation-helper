@@ -94,3 +94,25 @@ export const parseXML = xml => {
 
   return searchedHome;
 }
+
+// searchedHome = {
+//     search,   /// OR FOR COMPS: /// score: '',
+//     zpid: '',
+//     link: '',
+//     street: '',
+//     zipcode: '',
+//     city: '',
+//     state: '',
+//     latitude: '',
+//     longitude: '',
+//     assessmentYear: '',
+//     assessment: '',
+//     yearBuilt: '',
+//     lotSize: '',
+//     sqFt: '',
+//     bathrooms: '',
+//     bedrooms: '',
+//     lastSoldDate: '',
+//     lastSoldPrice: '',
+//     zestimate: ''
+//   }

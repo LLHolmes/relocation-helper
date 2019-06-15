@@ -2,9 +2,11 @@
 // ACTIONS TO HANDLE A USER'S SAVED HOMES ON LOCAL RAILS API //
 ///////////////////////////////////////////////////////////////
 
+import { addSavedUserHome } from './userHomesActions.js'
 import { removeUserSearchedHome } from './userHomesActions.js';
 import { removeUserApiHome } from './userActions.js';
 import { setNewUserHome } from './userActions.js';
+import { clearSearch } from './searchActions.js';
 
 
 const baseUrl = 'http://localhost:3000/api/v1';
@@ -12,7 +14,7 @@ const baseUrl = 'http://localhost:3000/api/v1';
 // synchronous action creators come from other action files
 
 // asynchronous action creators (api user's homes)
-export const createHome = data => {
+export const saveHome = (homeParams, search) => {
   return dispatch => {
     return fetch(baseUrl + '/homes', {
       credentials: "include",
@@ -21,15 +23,22 @@ export const createHome = data => {
         "content-type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(homeParams)
     })
     .then(response => response.json())
     .then(data => {
       if (data.error) {
         alert(data.error)
       } else {
-        dispatch(setNewUserHome(data))
+        return data
       }
+    })
+    .then( data => {
+      let userHomeSearch = {...search, apiId: data.id}
+      
+      dispatch(setNewUserHome(data))
+      dispatch(addSavedUserHome(userHomeSearch))
+      dispatch(clearSearch())
     })
     .catch(console.log)
   }

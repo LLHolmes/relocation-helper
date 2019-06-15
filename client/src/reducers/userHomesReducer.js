@@ -5,13 +5,9 @@ export default (state = [], action) => {
         ...state,
         action.data
       ];
-    case "SET_NEW_USER_SEARCHED_HOME":
-      console.log(`in homes reducer, SET_NEW_USER_SEARCHED_HOME: id${action.home}`)
-      console.log(action.home)
-      return [...state, action.home];
+    case "ADD_SAVED_USERHOME":
+      return [...state, action.data];
     case "REMOVE_USER_SEARCHED_HOME":
-      console.log(`in homes reducer, REMOVE_USER_SEARCHED_HOME`)
-      console.log(action.id)
       return state.filter(home => home.apiId !== action.id);
     default:
      return state;

@@ -15,6 +15,13 @@ export const setUserHomeSearch = data => {
   }
 }
 
+export const addSavedUserHome = data => {
+  return {
+    type: "ADD_SAVED_USERHOME",
+    data
+  }
+}
+
 export const removeUserSearchedHome = id => {
   return {
     type: "REMOVE_USER_SEARCHED_HOME",

@@ -7,8 +7,6 @@ export default (state = null, action) => {
     case "CLEAR_CURRENT_USER":
       return null;
     case "SET_NEW_USER_API_HOME":
-      console.log("in reducer, SET_NEW_USER_API_HOME")
-      console.log(action.home)
       return {
         ...state,
         homes:[...state.homes, action.home]

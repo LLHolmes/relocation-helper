@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { saveHome } from '../actions/homeActions.js';
 import SearchForm from './SearchForm.js';
-import UserHomeCard from './UserHomeCard.js';
+import SearchHomeCard from './SearchHomeCard.js';
 
-const SearchContainer = ({ search }) => {
+const SearchContainer = ({ search, saveHome }) => {
+  let homeParams = {
+    street: search.street,
+    cityState: `${search.city}, ${search.state}`,
+    zipcode: search.zipcode
+  }
+
   return (
-    <div className="SearchContainer">
+    <div className="SearchContainer CompHomeCard">
       <SearchForm />
-      { Object.keys(search).length === 0 ? '' : <UserHomeCard home={search}/>}
+      { Object.keys(search).length > 0 ? <h3  className="cardHolder">Search Result</h3> : ''}
+      { Object.keys(search).length === 0 ? '' : <SearchHomeCard home={search} homeParams={homeParams} saveHome={() => saveHome(homeParams, search)} />}
     </div>
   );
 }
@@ -18,4 +26,4 @@ const mapStateToProps = ({ search }) => {
   }
 }
 
-export default connect(mapStateToProps)(SearchContainer);
+export default connect(mapStateToProps, { saveHome })(SearchContainer);

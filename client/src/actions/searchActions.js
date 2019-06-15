@@ -18,8 +18,13 @@ export const setSearch = data => {
   }
 }
 
+export const clearSearch = () => {
+  return {
+    type: "CLEAR_SEARCH"
+  }
+}
+
 export const setComps = data => {
-  console.log("in setComps sync action")
   return {
     type: "COMP_SUCCESS",
     data
@@ -57,7 +62,7 @@ export const submitSearch = search => {
       })
     };
   } else {
-    alert("Please fill out your street address.");
+    alert("Please fill out the entire address.");
     return dispatch => {
       dispatch(resetSearchForm())
     };
@@ -86,9 +91,6 @@ export const findComps = zillowId => {
         };
         comps.push(comparable)
       }
-      console.log("THROUGH FOR LOOP")
-      console.log(comps)
-
       dispatch(setComps(comps))
     })
     .catch(error => {

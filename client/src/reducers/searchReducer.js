@@ -10,9 +10,12 @@ export default (state = initialState, action) => {
         ...state,
         search: action.data
       };
+    case "CLEAR_SEARCH":
+      return {
+        ...state,
+        search: {}
+      };
     case "COMP_SUCCESS":
-      console.log("in Reducer: COMP_SUCCESS")
-      console.log(action.data)
       return {
         ...state,
         comps: action.data

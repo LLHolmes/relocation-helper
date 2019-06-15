@@ -111,8 +111,23 @@ a.zillow {
   border-width: 1px;
   border-radius: 2px;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 48px;
+  right: 26px;
+}
+
+.saveHome  {
+  float: left;
+  width: 24%;
+  margin: auto;
+  font-size: 14px;
+  color: #282c34;
+  background-color: #61dafb;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 48px;
+  right: 26px;
 }
 
 strong {

@@ -14,6 +14,7 @@ const CompHomeCard = ({ home, removeComp }) => {
         <h2>Sold { home.lastSoldDate } for ${ home.lastSoldPrice }</h2>
       </div>
         <p>Zestimate: ${ home.zestimate }</p>
+        <a className="zillow" href={home.link}>See more details for { home.street }, { home.city }, { home.state } { home.zipcode} on Zillow</a>
         <button className="compDelete" onClick={() => removeComp(home.zpid)} >X</button>
     </fieldset>
   );

@@ -18,9 +18,10 @@ const UserHomeCard = ({ home, deleteHome, findComps, clearSearch }) => {
       </div>
       <div className="uneven-col3">
         <button className="uneven-end" onClick={() => deleteHome(home.apiId)}>Remove from my list</button>
-        <h3 className="uneven-middle">Estimated value: ${ home.zestimate }</h3>
+        <h3 className="uneven-middle">Zestimate: ${ home.zestimate }</h3>
         <button className="uneven-end" onClick={submitForComps}>Find Comps</button>
       </div>
+      <a className="zillow" href={home.link}>See more details for { home.street }, { home.city }, { home.state } { home.zipcode} on Zillow</a>
     </fieldset>
   );
 }

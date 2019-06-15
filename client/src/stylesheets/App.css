@@ -21,6 +21,8 @@
   padding: 2px;
   /* text-align: right; */
   /* align-items: right; */
+  /* width: 100%; */
+  /* background-color: #282c34; */
 }
 
 .MainContainer {
@@ -36,6 +38,8 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  /* width: 100%;
+  background-color: #282c34; */
 }
 
 a {
@@ -48,6 +52,10 @@ a {
 }
 
 /* Home Card columns */
+a.zillow {
+  margin-top: -10px;
+}
+
 .col3 {
   column-count: 3;
   column-rule: 1px solid grey;

@@ -98,6 +98,8 @@ export const findComps = zillowId => {
         };
         comps.push(comparable)
       }
+      comps.sort((a, b) => (parseInt(b.score) - parseInt(a.score)))
+      
       dispatch(setComps(comps))
     })
     .catch(error => {

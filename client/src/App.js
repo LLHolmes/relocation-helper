@@ -18,8 +18,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <MainContainer />
+        <div>
+          <NavBar />
+        </div>
+        <div>
+          <MainContainer />
+          <Footer />
+        </div>
       </div>
     );
   };

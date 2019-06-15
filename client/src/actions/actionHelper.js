@@ -96,7 +96,8 @@ export const parseXML = xml => {
 }
 
 // searchedHome = {
-//     search,   /// OR FOR COMPS: /// score: '',
+//     apiId: '',   ///FOR USERHOMES ONLY ///
+//     score: '',   /// FOR COMPS ONLY ///
 //     zpid: '',
 //     link: '',
 //     street: '',

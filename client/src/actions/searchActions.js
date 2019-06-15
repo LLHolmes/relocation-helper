@@ -50,7 +50,7 @@ export const submitSearch = search => {
         let searchedHome = parseXML(xml)
         dispatch(setSearch(searchedHome))
         dispatch(resetSearchForm())
-        dispatch(findComps(searchedHome))
+        dispatch(findComps(searchedHome.zpid))
       })
       .catch(error => {
         alert("Something went wrong. Please try again.")
@@ -65,12 +65,12 @@ export const submitSearch = search => {
 }
 
 // Find comps of single searched home on Zillow API
-export const findComps = search => {
+export const findComps = zillowId => {
 
   let comps = [];
   let comparable = {};
 
-  let zpid = encodeURIComponent(search.zpid);
+  let zpid = encodeURIComponent(zillowId);
   let count = 5
 
   return dispatch => {

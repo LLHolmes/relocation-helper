@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateSignupForm } from '../actions/formSignupActions.js'
-import { signupUser } from '../actions/userActions.js'
+// import { withRouter } from 'react-router-dom';
+import { updateSignupForm } from '../actions/formSignupActions.js';
+import { signupUser } from '../actions/userActions.js';
 
-const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
+const Signup = ({ history, user, formSignup, updateSignupForm, signupUser }) => {
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -11,16 +12,21 @@ const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
       ...formSignup,
       [name]: value
     };
-    updateSignupForm(updatedFormInfo)
+    updateSignupForm(updatedFormInfo);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    signupUser(formSignup)
-  }
+    signupUser(formSignup);
+    // can't figure out pushing the state after
+    // if (user) {
+      // history.push('/')
+    // }
+  };
 
   return (
-    <div>
+    <div className="Signup">
+      Sign up to view and save your homes:
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -28,6 +34,7 @@ const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
           value={formSignup.name}
           onChange={handleChange}
           placeholder="name"
+          required
         />
         <input
           type="text"
@@ -35,6 +42,7 @@ const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
           value={formSignup.email}
           onChange={handleChange}
           placeholder="email"
+          required
         />
         <input
           type="password"
@@ -42,18 +50,19 @@ const Signup = ({ formSignup, updateSignupForm, signupUser }) => {
           value={formSignup.password}
           onChange={handleChange}
           placeholder="password"
+          required
         />
         <input type="submit" value="Sign Up" />
       </form>
-      {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {
-    formSignup: state.formSignup
-  }
-}
+    formSignup: state.formSignup,
+    user: state.user
+  };
+};
 
 export default connect(mapStateToProps, { updateSignupForm, signupUser })(Signup);

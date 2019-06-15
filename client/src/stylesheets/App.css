@@ -10,20 +10,6 @@
   color: white;
 }
 
-.MainContainer {
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-  color: #61dafb;
-}
-
 .NavBar {
   position: fixed;
   top: 0;
@@ -35,6 +21,26 @@ a {
   padding: 2px;
   /* text-align: right; */
   /* align-items: right; */
+}
+
+.MainContainer {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #61dafb;
 }
 
 .cardHolder {

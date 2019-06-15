@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchUserHomes } from '../actions/userHomesActions.js';
 import { deleteHome } from '../actions/homeActions.js';
+import { findComps } from '../actions/searchActions.js';
 import UserHomeCard from './UserHomeCard.js';
 
 class UserHomeList extends Component {
@@ -14,12 +15,20 @@ class UserHomeList extends Component {
 
   render() {
     const showUserHomes = this.props.userHomes.map(home => {
-      return <UserHomeCard key={home.apiId} home={home} deleteHome={() => this.props.deleteHome(home.apiId)} source="user" />
+      return(
+        <UserHomeCard
+          key={home.apiId}
+          home={home}
+          deleteHome={() => this.props.deleteHome(home.apiId)}
+          findComps={() => this.props.findComps(home.zpid)}
+          source="user"
+        />
+      )
     });
 
     return (
       <div className="UserHomeList">
-        <h3  className="cardHolder">My Saved Homes</h3>
+        { this.props.userHomes.length > 0 ? <h3  className="cardHolder">My Saved Homes</h3> : ''}
         { showUserHomes }
       </div>
     );
@@ -33,4 +42,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { searchUserHomes, deleteHome })(UserHomeList);
+export default connect(mapStateToProps, { searchUserHomes, deleteHome, findComps })(UserHomeList);

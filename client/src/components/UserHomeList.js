@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchUserHomes } from '../actions/userHomesActions.js';
 import { deleteHome } from '../actions/homeActions.js';
-import { findComps } from '../actions/searchActions.js';
+import { findComps, clearSearch } from '../actions/searchActions.js';
 import UserHomeCard from './UserHomeCard.js';
 
 class UserHomeList extends Component {
@@ -21,6 +21,7 @@ class UserHomeList extends Component {
           home={home}
           deleteHome={() => this.props.deleteHome(home.apiId)}
           findComps={() => this.props.findComps(home.zpid)}
+          clearSearch={this.props.clearSearch}
           source="user"
         />
       )
@@ -42,4 +43,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { searchUserHomes, deleteHome, findComps })(UserHomeList);
+export default connect(mapStateToProps, { searchUserHomes, deleteHome, findComps, clearSearch })(UserHomeList);

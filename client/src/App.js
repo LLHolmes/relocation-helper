@@ -11,7 +11,7 @@ import MainContainer from './components/MainContainer';
 
 class App extends Component {
 
-  componentDidMount() { 
+  componentDidMount() {
     this.props.getCurrentUser()
   };
 

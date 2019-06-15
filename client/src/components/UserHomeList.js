@@ -14,11 +14,12 @@ class UserHomeList extends Component {
 
   render() {
     const showUserHomes = this.props.userHomes.map(home => {
-      return <UserHomeCard key={home.apiId} home={home} deleteHome={() => this.props.deleteHome(home.apiId)} />
+      return <UserHomeCard key={home.apiId} home={home} deleteHome={() => this.props.deleteHome(home.apiId)} source="user" />
     });
 
     return (
       <div className="UserHomeList">
+        <h3  className="cardHolder">My Saved Homes</h3>
         { showUserHomes }
       </div>
     );

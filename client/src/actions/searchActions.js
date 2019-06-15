@@ -53,9 +53,15 @@ export const submitSearch = search => {
       .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
       .then(xml => {
         let searchedHome = parseXML(xml)
-        dispatch(setSearch(searchedHome))
-        dispatch(resetSearchForm())
-        dispatch(findComps(searchedHome.zpid))
+        if(searchedHome.street === "unknown") {
+          dispatch(clearSearch())
+          alert("Zillow could not find this home")
+          dispatch(resetSearchForm())
+        } else {
+          dispatch(setSearch(searchedHome))
+          dispatch(resetSearchForm())
+          dispatch(findComps(searchedHome.zpid))
+        }
       })
       .catch(error => {
         alert("Something went wrong. Please try again.")
@@ -65,6 +71,7 @@ export const submitSearch = search => {
     alert("Please fill out the entire address.");
     return dispatch => {
       dispatch(resetSearchForm())
+      dispatch(clearSearch())
     };
   };
 }

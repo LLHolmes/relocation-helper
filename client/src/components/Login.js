@@ -20,7 +20,8 @@ const Login = ({ formLogin, updateLoginForm, loginUser }) => {
   };
 
   return (
-    <div>
+    <div className="Login">
+      Log in to view and save your homes:
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -28,6 +29,7 @@ const Login = ({ formLogin, updateLoginForm, loginUser }) => {
           value={formLogin.email}
           onChange={handleChange}
           placeholder="email"
+          required
         />
         <input
           type="password"
@@ -35,10 +37,10 @@ const Login = ({ formLogin, updateLoginForm, loginUser }) => {
           value={formLogin.password}
           onChange={handleChange}
           placeholder="password"
+          required
         />
         <input type="submit" value="Login" />
       </form>
-      {/* <span style={{ color: "red" }}>{this.state.error}</span> */}
     </div>
   );
 };

@@ -2,6 +2,9 @@
 // ACTIONS TO HANDLE A USER'S ACCOUNT & SESSION ON LOCAL RAILS API //
 /////////////////////////////////////////////////////////////////////
 
+import { resetLoginForm } from './formLoginActions.js';
+import { resetSignupForm } from './formSignupActions.js';
+
 const baseUrl = 'http://localhost:3000';
 const apiBaseUrl = baseUrl + '/api/v1'
 
@@ -48,8 +51,10 @@ export const signupUser = data => {
     .then(data => {
       if (data.error) {
         alert(data.error)
+        dispatch(resetSignupForm())
       } else {
         dispatch(setCurrentUser(data))
+        dispatch(resetSignupForm())
       }
     })
     .catch(console.log)
@@ -90,8 +95,10 @@ export const loginUser = data => {
     .then(data => {
       if (data.error) {
         alert(data.error)
+        dispatch(resetLoginForm())
       } else {
         dispatch(setCurrentUser(data))
+        dispatch(resetLoginForm())
       }
     })
     .catch(console.log)

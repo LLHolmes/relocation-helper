@@ -43,7 +43,7 @@ export const removeComp = zpid => {
 // Search single home on Zillow API from search form
 export const submitSearch = search => {
 
-  if (search.street) {
+  if (search.cityState || search.zipcode) {
     let address = encodeURIComponent(search.street);
     let citystatezip = search.zipcode ? encodeURIComponent(search.zipcode) : encodeURIComponent(search.cityState);
 
@@ -68,7 +68,7 @@ export const submitSearch = search => {
       })
     };
   } else {
-    alert("Please fill out the entire address.");
+    alert("Please enter city and state or zipcode.");
     return dispatch => {
       dispatch(resetSearchForm())
       dispatch(clearSearch())
@@ -99,7 +99,7 @@ export const findComps = zillowId => {
         comps.push(comparable)
       }
       comps.sort((a, b) => (parseInt(b.score) - parseInt(a.score)))
-      
+
       dispatch(setComps(comps))
     })
     .catch(error => {

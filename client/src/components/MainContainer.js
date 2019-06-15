@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SearchMemberContainer from './SearchMemberContainer.js';
 import SearchGenericContainer from './SearchGenericContainer.js';
 import CompList from './CompList.js';
+import Footer from './Footer.js';
 
 const MainContainer = ({ user }) => {
 
@@ -10,6 +11,7 @@ const MainContainer = ({ user }) => {
     <div className="MainContainer">
       { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
       <CompList />
+      <Footer />
     </div>
   );
 }

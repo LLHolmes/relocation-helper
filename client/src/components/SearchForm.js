@@ -21,7 +21,7 @@ const SearchForm = ({ formSearch, updateSearchForm, submitSearch }) => {
 
   return (
     <div>
-      Search homes:
+      <h3>Search homes:</h3>
       <form onSubmit={handleSubmit}>
         <input
           type='text'

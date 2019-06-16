@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { saveHome } from '../actions/homeActions.js';
-import SearchForm from './SearchForm.js';
-import SearchHomeCard from './SearchHomeCard.js';
+import SearchForm from '../components/SearchForm.js';
+import SearchHomeCard from '../components/SearchHomeCard.js';
 
 const SearchContainer = ({ search, saveHome }) => {
   let homeParams = {

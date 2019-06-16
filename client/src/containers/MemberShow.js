@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchUserHomes } from '../actions/userHomesActions.js';
 import { deleteHome } from '../actions/homeActions.js';
-// import { findComps, clearSearch } from '../actions/searchActions.js';
-import MemberHomeCard from './MemberHomeCard.js';
-import Unsubscribe from './Unsubscribe.js';
+import MemberHomeCard from '../components/MemberHomeCard.js';
+import Unsubscribe from '../components/Unsubscribe.js';
 
 class MemberShow extends Component {
 

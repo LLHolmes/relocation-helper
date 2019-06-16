@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeComp } from '../actions/searchActions.js';
-import CompHomeCard from './CompHomeCard.js';
+import CompHomeCard from '../components/CompHomeCard.js';
 
 class CompList extends Component {
 

@@ -4,14 +4,12 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { getCurrentUser } from './actions/userActions.js'
 import './stylesheets/App.css';
-import NavBar from './components/NavBar';
+import NavBar from './containers/NavBar';
 import Footer from './components/Footer.js';
-import MainContainer from './components/MainContainer';
+import MainContainer from './containers/MainContainer';
 import Signup from './components/Signup';
 import Login from './components/Login';
-// import Unsubscribe from './components/Unsubscribe';
-import MemberShow from './components/MemberShow';
-// import HomeSearchForm from './components/HomeSearchForm';
+import MemberShow from './containers/MemberShow';
 
 class App extends Component {
 
@@ -58,26 +56,3 @@ const mapStateToProps = ({ user }) => {
 };
 
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
-// <Route exact path ="/signup" component={ Signup } />
-// <Route exact path ="/login" component={ Login } />
-// { user ? <Route exact path ="/member/homes" component={ MemberShow } /> : <Redirect from="/member/homes" to="/login"}
-// <Route component={ MainContainer } />
-
-// { user =>
-//   user ? (
-//     <Switch>
-//       <Route exact path ="/signup" component={ Signup } />
-//       <Route exact path ="/login" component={ Login } />
-//       <Route exact path ="/member/homes" component={ MemberShow } />
-//       <Route component={ MainContainer } />
-//     </Switch>
-//   ) : (
-//     <Switch>
-//       <Route exact path ="/signup" component={ Signup } />
-//       <Route exact path ="/login" component={ Login } />
-//       <Route component={ MainContainer } />
-//       <Redirect from="/member/homes" to="/login"/>
-//     </Switch>
-//   )
-// }

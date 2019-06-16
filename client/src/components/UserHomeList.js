@@ -8,9 +8,11 @@ import UserHomeCard from './UserHomeCard.js';
 class UserHomeList extends Component {
 
   componentDidMount() {
-    this.props.homes.forEach(home => {
-      this.props.searchUserHomes(home);
-    });
+    if (this.props.userHomes.length === 0) {
+      this.props.homes.forEach(home => {
+        this.props.searchUserHomes(home);
+      });
+    };
   };
 
   render() {

@@ -22,7 +22,6 @@ class UserHomeList extends Component {
           deleteHome={() => this.props.deleteHome(home.apiId)}
           findComps={() => this.props.findComps(home)}
           clearSearch={this.props.clearSearch}
-          source="user"
         />
       )
     });

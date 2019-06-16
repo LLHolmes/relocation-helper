@@ -7,8 +7,8 @@ const Unsubscribe = ({ history, unsubscribeUser }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    unsubscribeUser();
-    history.push('/');
+    unsubscribeUser()
+    .then(history.push('/'));
   };
 
   return (

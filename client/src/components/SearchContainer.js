@@ -14,7 +14,7 @@ const SearchContainer = ({ search, saveHome }) => {
   return (
     <div className="SearchContainer CompHomeCard">
       <SearchForm />
-      { Object.keys(search).length > 0 ? <h3  className="cardHolder">Search Result</h3> : <h3>Please enter a search to recieve comparable home information</h3>}
+      { Object.keys(search).length > 0 ? <h3  className="cardHolder">Search Result</h3> : ''}
       { Object.keys(search).length === 0 ? '' : <SearchHomeCard home={search} homeParams={homeParams} saveHome={() => saveHome(homeParams, search)} />}
     </div>
   );

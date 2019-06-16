@@ -14,7 +14,7 @@ class CompList extends Component {
 
     return (
       <div className="CompList">
-        { comps.length > 0 ? <h3  className="cardHolder">Comparable Homes to {search.street}, {search.city}, {search.state} {search.zipcode} </h3> : ''}
+        { comps.length > 0 ? <h3  className="cardHolder">Comparable Homes to {search.street}, {search.city}, {search.state} {search.zipcode} </h3> : <h3>Enter a search or select a saved home to recieve comparable home information</h3>}
         { showComps }
       </div>
     );

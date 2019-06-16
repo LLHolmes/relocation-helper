@@ -5,18 +5,18 @@ import { NavLink } from 'react-router-dom';
 // import Signup from './Signup';
 import Logout from './Logout';
 
-const NavBar = ({ user }) => {
+const NavBar = ({ history, user }) => {
 
   return (
     <div className="NavBar">
       <NavLink className="NavLeft" to="/">Home</NavLink>
       { user ? (
-        <NavLink className="NavUser" to="/member/homes">Welcome {user.name}</NavLink>
+        <NavLink className="NavAccount" to="/member/homes">Account</NavLink>
       ) : (
         <NavLink className="NavRight" to="/login">Login</NavLink>
       )}
       { user ? (
-        <Logout />
+        <Logout history={history} />
       ) : (
         <NavLink className="NavRight" to="/signup">Signup</NavLink>
       )}

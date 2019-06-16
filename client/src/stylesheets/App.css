@@ -28,27 +28,29 @@
 
 .NavLeft {
   /* margin-left: 20px; */
-  float: left;
+  /* float: left; */
   text-align: left;
-  margin: 2px 6px;
+  margin: 2px 12px;
+  padding-left: 20px;
+}
+
+.NavAccount {
+  /* float: right; */
+  text-align: left;
+  margin: 2px 12px;
+  /* font-weight: bold; */
 }
 
 .NavRight {
-  float: right;
+  /* float: right; */
   text-align: left;
-  margin: 2px 6px;
-}
-
-.NavUser {
-  float: right;
-  margin: 2px 6px;
-  font-weight: bold;
+  margin: 2px 12px;
 }
 
 .LogoutButton {
   border: 0;
   padding: 0;
-  margin: 2px 6px;
+  margin: 2px 12px;
   font-size: 20px;
   font-family: inherit;
   background-color: #282c34;

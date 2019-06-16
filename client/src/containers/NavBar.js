@@ -18,6 +18,7 @@ const NavBar = ({ history, user }) => {
       ) : (
         <NavLink className="NavRight" to="/signup">Signup</NavLink>
       )}
+      Homebuyer's Helper
     </div>
   );
 }

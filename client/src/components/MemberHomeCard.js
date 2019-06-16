@@ -14,9 +14,14 @@ const MemberHomeCard = ({ home, deleteHome, clearSearch }) => {
         <h2>Zestimate: ${ home.zestimate }</h2>
       </div>
       <div>
+        <p>Sold { home.lastSoldDate } for ${ home.lastSoldPrice }</p>
+      </div>
+      <div>
         <p>Last assessed Value: ${ home.assessment.slice(0, -2) } in { home.assessmentYear }</p>
       </div>
-      <button className="uneven-end" onClick={() => deleteHome(home.apiId)}>Remove from my list</button>
+      <div>
+        <button className="MemberRemoveButton" onClick={() => deleteHome(home.apiId)}>Remove from my list</button>
+      </div>
       <a className="zillow" href={home.link}>See more details for { home.street }, { home.city }, { home.state } { home.zipcode} on Zillow</a>
     </fieldset>
   );

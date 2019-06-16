@@ -8,7 +8,7 @@ const MainContainer = ({ user }) => {
 
   return (
     <div className="MainContainer">
-      { user ? <h1>Welcome to Home, {user.name}!</h1> : <h1>Welcome to Home!</h1>}
+      { user ? <h1>Welcome Home, {user.name}!</h1> : <h1>Welcome Home!</h1>}
       { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
       <CompList />
     </div>

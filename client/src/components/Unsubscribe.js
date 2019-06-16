@@ -12,7 +12,7 @@ const Unsubscribe = ({ history, unsubscribeUser }) => {
   };
 
   return (
-    <div>
+    <div className="Unsubscribe">
       <form onSubmit={handleSubmit}>
         <input type="submit" value="Delete Account" />
       </form>

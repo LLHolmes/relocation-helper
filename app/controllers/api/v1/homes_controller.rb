@@ -1,14 +1,5 @@
 class Api::V1::HomesController < ApplicationController
-  before_action :find_home, only: [:show, :update, :destroy]
-
-  def index
-    @homes = current_user.homes
-    render json: @homes, status: 200
-  end
-
-  def show
-    render json: @home, status: 200
-  end
+  before_action :find_home, only: [:destroy]
 
   def create
     @home = current_user.homes.build(home_params)
@@ -19,16 +10,7 @@ class Api::V1::HomesController < ApplicationController
     end
   end
 
-  def update
-    if @home.update(home_params)
-      render json: @home, status: 202
-    else
-      render json: { error: "Unable to edit this home" }, status: 400
-    end
-  end
-
   def destroy
-    # binding.pry
     if @home.destroy
       render json: { notice: "Deleted this home" }, status: 202
     else

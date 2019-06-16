@@ -11,6 +11,7 @@
   bottom: 0;
   overflow: scroll;
   padding-bottom: 80px;
+  height: 100%;
 }
 
 .NavBar {
@@ -58,18 +59,25 @@
   float: right;
 }
 
-.MainContainer, .Signup, .Login {
-  /* background-color: red; */
+.Signup, .Login {
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 75%; */
   margin: 0px;
   padding: 0px;
-  /* height: 100px; */
+}
+
+.MainContainer {
+  text-align: center;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
 
 .Footer {
@@ -77,12 +85,45 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  /* background-color: #282c34; */
+  background-color: #282c34;
 }
 
 a {
   text-decoration: none;
   color: #61dafb;
+}
+
+/* MainContainer */
+.MainWelcome {
+  display: block;
+  width: 100%;
+  position: fixed;
+  height: 10%;
+  background-color: #282c34;
+  z-index: 1;
+}
+
+.MainScroll {
+  position: fixed;
+  height: 90%;
+}
+
+.SearchMemberContainer, .SearchGenericContainer {
+  float: left;
+  margin-left: 50px;
+  height: 85%;
+  width:45%;
+  overflow: scroll;
+  padding-top: 70px;
+}
+
+.CompList {
+  float: right;
+  margin-right: 50px;
+  height: 85%;
+  width:45%;
+  overflow: scroll;
+  padding-top: 70px;
 }
 
 .cardHolder {

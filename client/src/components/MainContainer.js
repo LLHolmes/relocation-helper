@@ -4,20 +4,25 @@ import SearchMemberContainer from './SearchMemberContainer.js';
 import SearchGenericContainer from './SearchGenericContainer.js';
 import CompList from './CompList.js';
 
-const MainContainer = ({ user }) => {
+const MainContainer = ({ user, comps }) => {
 
   return (
     <div className="MainContainer">
-      { user ? <h1>Welcome Home, {user.name}!</h1> : <h1>Welcome Home!</h1>}
-      { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
-      <CompList />
+      <div className="MainWelcome">
+        { user ? <h1 className="Welcome">Welcome Home, {user.name}!</h1> : <h1 className="Welcome">Welcome Home!</h1>}
+      </div>
+      <div className="MainScroll">
+        { user ? <SearchMemberContainer /> : <SearchGenericContainer />}
+        <CompList />
+      </div>
     </div>
   );
 }
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = state => {
   return {
-    user
+    user: state.user,
+    comps: state.search.comps
   }
 }
 

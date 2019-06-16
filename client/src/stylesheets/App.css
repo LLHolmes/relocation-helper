@@ -1,13 +1,16 @@
 .App {
-  /* text-align: center; */
   background-color: #282c34;
   min-height: 100vh;
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* font-size: calc(10px + 2vmin); */
   color: white;
+}
+
+.MainBody {
+  position: fixed;
+  width: 100%;
+  top: 40px;
+  bottom: 0;
+  overflow: scroll;
+  padding-bottom: 80px;
 }
 
 .NavBar {
@@ -19,27 +22,60 @@
   font-size: 20px;
   margin: 2px;
   padding: 2px;
-  /* text-align: right; */
-  /* align-items: right; */
-  /* width: 100%; */
-  /* background-color: #282c34; */
+  width: 100%;
+  overflow: hidden;
 }
 
-.MainContainer {
+.NavLeft {
+  /* margin-left: 20px; */
+  float: left;
+  text-align: left;
+  margin: 2px 6px;
+}
+
+.NavRight {
+  float: right;
+  text-align: left;
+  margin: 2px 6px;
+}
+
+.NavUser {
+  float: right;
+  margin: 2px 6px;
+  font-weight: bold;
+}
+
+.LogoutButton {
+  border: 0;
+  padding: 0;
+  margin: 2px 6px;
+  font-size: 20px;
+  font-family: inherit;
+  background-color: #282c34;
+  color: #61dafb;
+  float: right;
+}
+
+.MainContainer, .Signup, .Login {
+  /* background-color: red; */
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* height: 75%; */
+  margin: 0px;
+  padding: 0px;
+  /* height: 100px; */
 }
 
 .Footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  /* width: 100%;
-  background-color: #282c34; */
+  width: 100%;
+  /* background-color: #282c34; */
 }
 
 a {
@@ -130,7 +166,7 @@ a.zillow {
   right: 26px;
 }
 
-strong {
+/* strong {
   font-size: 20px;
   margin: 2px 6px;
-}
+} */

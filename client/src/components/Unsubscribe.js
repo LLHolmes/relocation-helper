@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { unsubscribeUser } from '../actions/userActions.js'
+import { withRouter } from 'react-router-dom';
+import { unsubscribeUser } from '../actions/userActions.js';
 
-const Unsubscribe = ({ unsubscribeUser }) => {
+const Unsubscribe = ({ history, unsubscribeUser }) => {
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    unsubscribeUser();
+    history.push('/');
+  };
 
   return (
     <div>
-      <form onSubmit={ unsubscribeUser }>
+      <form onSubmit={handleSubmit}>
         <input type="submit" value="Delete Account" />
       </form>
     </div>
   );
-}
+};
 
-export default connect(null, { unsubscribeUser })(Unsubscribe);
+export default withRouter(connect(null, { unsubscribeUser })(Unsubscribe));

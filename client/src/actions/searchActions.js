@@ -45,6 +45,12 @@ export const removeComp = zpid => {
   }
 }
 
+export const hardClearSearch = () => {
+  return {
+    type: "HARD_CLEAR_SEARCH"
+  }
+}
+
 
 //// ASYNCHRONOUS ACTION CREATORS ////
 // Search single home on Zillow API from search form

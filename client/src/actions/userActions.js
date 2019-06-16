@@ -5,6 +5,7 @@
 import { resetLoginForm } from './formLoginActions.js';
 import { resetSignupForm } from './formSignupActions.js';
 import { clearUserHomes } from './userHomesActions.js';
+import { hardClearSearch } from './searchActions.js';
 
 const baseUrl = 'http://localhost:3000';
 const apiBaseUrl = baseUrl + '/api/v1'
@@ -72,7 +73,8 @@ export const unsubscribeUser = () => {
     .then(data => {
       if (data.notice) {
         dispatch(clearCurrentUser())
-        dispatch(clearUserHomes());
+        dispatch(clearUserHomes())
+        dispatch(hardClearSearch())
         alert(data.notice)
       } else if (data.error) {
         alert(data.error)
@@ -110,6 +112,7 @@ export const logoutUser = () => {
   return dispatch => {
     dispatch(clearCurrentUser());
     dispatch(clearUserHomes());
+    dispatch(hardClearSearch());
     return fetch(baseUrl + '/logout', {
       credentials: "include",
       method: "DELETE"

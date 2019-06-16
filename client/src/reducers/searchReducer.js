@@ -31,6 +31,8 @@ export default (state = initialState, action) => {
         ...state,
         comps: state.comps.filter(comp => comp.zpid !== action.zpid)
       }
+    case "HARD_CLEAR_SEARCH":
+      return initialState;
     default:
       return state;
   };

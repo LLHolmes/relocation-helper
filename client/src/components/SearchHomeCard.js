@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchHomeCard = ({ home, homeParams, saveHome }) => {
+const SearchHomeCard = ({ user, home, homeParams, saveHome }) => {
 
   return (
     <fieldset className="SearchHomeCard">
@@ -13,7 +13,7 @@ const SearchHomeCard = ({ home, homeParams, saveHome }) => {
         <p>Last sold on { home.lastSoldDate } for ${ home.lastSoldPrice }</p>
         <h3>Zestimate: ${ home.zestimate }</h3>
         <a className="zillow" href={home.link}>See more details for { home.street }, { home.city }, { home.state } { home.zipcode} on Zillow</a>
-        <button className="saveHome" onClick={() => saveHome(homeParams, home)} >Save This Home</button>
+        { user ? <button className="saveHome" onClick={() => saveHome(homeParams, home)} >Save This Home</button> : '' }
     </fieldset>
   );
 }

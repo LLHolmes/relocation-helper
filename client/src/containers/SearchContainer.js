@@ -4,7 +4,7 @@ import { saveHome } from '../actions/homeActions.js';
 import SearchForm from '../components/SearchForm.js';
 import SearchHomeCard from '../components/SearchHomeCard.js';
 
-const SearchContainer = ({ search, saveHome }) => {
+const SearchContainer = ({ user, search, saveHome }) => {
   let homeParams = {
     street: search.street,
     cityState: `${search.city}, ${search.state}`,
@@ -15,14 +15,15 @@ const SearchContainer = ({ search, saveHome }) => {
     <div className="SearchContainer CompHomeCard">
       <SearchForm />
       { Object.keys(search).length > 0 ? <h3  className="cardHolder">Search Result</h3> : ''}
-      { Object.keys(search).length === 0 ? '' : <SearchHomeCard home={search} homeParams={homeParams} saveHome={() => saveHome(homeParams, search)} />}
+      { Object.keys(search).length === 0 ? '' : <SearchHomeCard home={search} user={user} homeParams={homeParams} saveHome={() => saveHome(homeParams, search)} />}
     </div>
   );
 }
 
-const mapStateToProps = ({ search }) => {
+const mapStateToProps = state => {
   return {
-    search: search.search
+    user: state.user,
+    search: state.search.search
   }
 }
 

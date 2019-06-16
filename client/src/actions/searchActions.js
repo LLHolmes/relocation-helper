@@ -90,7 +90,7 @@ export const findComps = searchedHome => {
   let comparable = {};
 
   let zpid = encodeURIComponent(searchedHome.zpid);
-  let count = 5
+  let count = 15
 
   return dispatch => {
     return fetch(zillowCompsBase + `&zpid=${zpid}&count=${count}`)

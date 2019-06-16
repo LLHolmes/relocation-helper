@@ -7,8 +7,8 @@ const Logout = ({ history, logoutUser }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    logoutUser();
-    history.push('/');
+    logoutUser()
+    .then(history.push('/'));
   };
 
   return (

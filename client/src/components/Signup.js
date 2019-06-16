@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import { updateSignupForm } from '../actions/formSignupActions.js';
 import { signupUser } from '../actions/userActions.js';
 
@@ -17,11 +16,8 @@ const Signup = ({ history, user, formSignup, updateSignupForm, signupUser }) => 
 
   const handleSubmit = event => {
     event.preventDefault();
-    signupUser(formSignup);
-    // can't figure out pushing the state after
-    // if (user) {
-      // history.push('/')
-    // }
+    signupUser(formSignup)
+    .then(history.push('/'));
   };
 
   return (

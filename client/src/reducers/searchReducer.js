@@ -1,5 +1,6 @@
 const initialState = {
   search: {},
+  compSearch: {},
   comps: []
 };
 
@@ -20,6 +21,11 @@ export default (state = initialState, action) => {
         ...state,
         comps: action.data
       };
+    case "COMP_SEARCH_SUCCESS":
+      return {
+        ...state,
+        compSearch: action.data
+      }
     case "REMOVE_COMP":
       return {
         ...state,

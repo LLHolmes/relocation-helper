@@ -6,22 +6,25 @@ import CompHomeCard from './CompHomeCard.js';
 class CompList extends Component {
 
   render() {
-    const showComps = this.props.comps.map(home => {
-      return <CompHomeCard key={home.zpid} home={home} removeComp={() => this.props.removeComp(home.zpid)} />
+    const { search, comps, removeComp } = this.props
+
+    const showComps = comps.map(home => {
+      return <CompHomeCard key={home.zpid} home={home} removeComp={() => removeComp(home.zpid)} />
     });
 
     return (
       <div className="CompList">
-        { this.props.comps.length > 0 ? <h3  className="cardHolder">Comparable Homes</h3> : ''}
+        { comps.length > 0 ? <h3  className="cardHolder">Comparable Homes to {search.street}, {search.city}, {search.state} {search.zipcode} </h3> : ''}
         { showComps }
       </div>
     );
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ search }) => {
   return {
-    comps: state.search.comps
+    search: search.compSearch,
+    comps: search.comps
   };
 };
 

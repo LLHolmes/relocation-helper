@@ -20,7 +20,7 @@ class UserHomeList extends Component {
           key={home.apiId}
           home={home}
           deleteHome={() => this.props.deleteHome(home.apiId)}
-          findComps={() => this.props.findComps(home.zpid)}
+          findComps={() => this.props.findComps(home)}
           clearSearch={this.props.clearSearch}
           source="user"
         />

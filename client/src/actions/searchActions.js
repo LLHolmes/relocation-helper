@@ -31,6 +31,13 @@ export const setComps = data => {
   }
 }
 
+export const setCompSearch = data => {
+  return {
+    type: "COMP_SEARCH_SUCCESS",
+    data
+  }
+}
+
 export const removeComp = zpid => {
   return {
     type: "REMOVE_COMP",
@@ -60,7 +67,7 @@ export const submitSearch = search => {
         } else {
           dispatch(setSearch(searchedHome))
           dispatch(resetSearchForm())
-          dispatch(findComps(searchedHome.zpid))
+          dispatch(findComps(searchedHome))
         }
       })
       .catch(error => {
@@ -77,12 +84,12 @@ export const submitSearch = search => {
 }
 
 // Find comps of single searched home on Zillow API
-export const findComps = zillowId => {
+export const findComps = searchedHome => {
 
   let comps = [];
   let comparable = {};
 
-  let zpid = encodeURIComponent(zillowId);
+  let zpid = encodeURIComponent(searchedHome.zpid);
   let count = 5
 
   return dispatch => {
@@ -101,6 +108,7 @@ export const findComps = zillowId => {
       comps.sort((a, b) => (parseInt(b.score) - parseInt(a.score)))
 
       dispatch(setComps(comps))
+      dispatch(setCompSearch(searchedHome))
     })
     .catch(error => {
       alert("Something went wrong. Please try again.")

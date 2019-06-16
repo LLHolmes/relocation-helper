@@ -21,7 +21,11 @@ export default rootReducer;
 
 // FOR REFERENCE:
 // storeInitialState = {
-//   search: { search: {}, comps: {} },
+//   search: {
+//     search: {},
+//     compSearch: {},
+//     comps: [{}, {}, {}...]
+//   },
 //   user: null,
 //   userHomes: [],
 //   formSignup: { name: '', email: '', password: '' }

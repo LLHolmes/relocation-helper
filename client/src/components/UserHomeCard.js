@@ -5,7 +5,7 @@ const UserHomeCard = ({ home, deleteHome, findComps, clearSearch }) => {
   const submitForComps = event => {
     event.preventDefault();
     clearSearch();
-    findComps(home.zpid);
+    findComps(home);
   };
 
   return (

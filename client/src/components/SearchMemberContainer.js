@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchContainer from './SearchContainer.js';
 import UserHomeList from './UserHomeList.js';
-import Unsubscribe from './Unsubscribe.js';
 
 const SearchMemberContainer = () => {
 
@@ -9,7 +8,6 @@ const SearchMemberContainer = () => {
     <div className="SearchMemberContainer">
       <SearchContainer />
       <UserHomeList />
-      <Unsubscribe />
     </div>
   );
 };

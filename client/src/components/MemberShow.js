@@ -4,6 +4,7 @@ import { searchUserHomes } from '../actions/userHomesActions.js';
 import { deleteHome } from '../actions/homeActions.js';
 import { findComps, clearSearch } from '../actions/searchActions.js';
 import UserHomeCard from './UserHomeCard.js';
+import Unsubscribe from './Unsubscribe.js';
 
 class MemberShow extends Component {
 
@@ -32,6 +33,7 @@ class MemberShow extends Component {
         <h1> NEEDS TO BE WORKED ON!!! </h1>
         { this.props.userHomes.length > 0 ? <h3  className="cardHolder">My Saved Homes</h3> : ''}
         { showUserHomes }
+        <Unsubscribe history={this.props.history} />
       </div>
     );
   };

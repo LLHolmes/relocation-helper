@@ -29,6 +29,12 @@ export const removeUserSearchedHome = id => {
   }
 }
 
+export const clearUserHomes = () => {
+  return {
+    type: "CLEAR_USER_HOMES",
+  }
+}
+
 
 // asynchronous action creators (zillow)
 export const searchUserHomes = search => {

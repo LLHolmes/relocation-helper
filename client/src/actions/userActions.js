@@ -4,6 +4,7 @@
 
 import { resetLoginForm } from './formLoginActions.js';
 import { resetSignupForm } from './formSignupActions.js';
+import { clearUserHomes } from './userHomesActions.js';
 
 const baseUrl = 'http://localhost:3000';
 const apiBaseUrl = baseUrl + '/api/v1'
@@ -63,7 +64,6 @@ export const signupUser = data => {
 
 export const unsubscribeUser = () => {
   return dispatch => {
-    // dispatch(clearCurrentUser())
     return fetch(apiBaseUrl + '/unsubscribe', {
       credentials: "include",
       method: "DELETE"
@@ -72,6 +72,7 @@ export const unsubscribeUser = () => {
     .then(data => {
       if (data.notice) {
         dispatch(clearCurrentUser())
+        dispatch(clearUserHomes());
         alert(data.notice)
       } else if (data.error) {
         alert(data.error)
@@ -108,6 +109,7 @@ export const loginUser = data => {
 export const logoutUser = () => {
   return dispatch => {
     dispatch(clearCurrentUser());
+    dispatch(clearUserHomes());
     return fetch(baseUrl + '/logout', {
       credentials: "include",
       method: "DELETE"

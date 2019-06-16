@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Homebuyer's Helper
 
-## Available Scripts
+Flatiron School - React Portfolio Project
 
-In the project directory, you can run:
+Home Sweet Homebuyer's Helper!  Thinking of buy or selling a home?  Want to keep tabs on your real estate investments?  Need to contest the dreaded assessor’s office?  Increase your knowledge of the current housing market with Homebuyer's Helper - a React app with a Rails back end.
 
-### `npm start`
+## Usage
+This project is currently run on your local host.
+
+Please fork and clone this repo then:
+
+Run:
+  $ bundle install
+
+Then:
+  $ rake db:create && rake db:migrate
+
+To run on your local machine:
+  $ rake start
+
+Shut down the server using control C.
+
+If you have issues you may need to install the react front end before trying to start the server again:
+  $ cd client
+  $ npm install
+  $ cd ..
+  $ rake start
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Enter an address into Homebuyer's Helper and receive information on that home along with a list of recently sold comparable homes.  If logged in, you can save the address of your home/s and they'll greet you next time you log in.
 
-### `npm run build`
+Happy home buying!
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+After checking out the repo, you can run `rails c` for an interactive prompt that will allow you to experiment with the Rails back end.
 
-### Code Splitting
+The page will reload if you make edits on the front end in the client folder.<br>
+You will also see any lint errors in the console.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Contributing
 
-### Analyzing the Bundle Size
+Bug reports and pull requests are welcome on GitHub at https://github.com/LLHolmes/yarn_stash_organizer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## License
 
-### Making a Progressive Web App
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Code of Conduct
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Everyone interacting in the Yarn Stash Organizer project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/yarn_organizer/blob/master/CODE_OF_CONDUCT.md).

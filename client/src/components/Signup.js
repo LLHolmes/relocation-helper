@@ -17,7 +17,11 @@ const Signup = ({ history, user, formSignup, updateSignupForm, signupUser }) => 
   const handleSubmit = event => {
     event.preventDefault();
     signupUser(formSignup)
-    .then(history.push('/'));
+    .then(response => {
+      if (!response.error) {
+        history.push('/');
+      };
+    });
   };
 
   return (

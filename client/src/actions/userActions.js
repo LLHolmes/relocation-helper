@@ -54,9 +54,11 @@ export const signupUser = data => {
       if (data.error) {
         alert(data.error)
         dispatch(resetSignupForm())
+        return data
       } else {
         dispatch(setCurrentUser(data))
         dispatch(resetSignupForm())
+        return data
       }
     })
     .catch(console.log)
@@ -99,9 +101,11 @@ export const loginUser = data => {
       if (data.error) {
         alert(data.error)
         dispatch(resetLoginForm())
+        return data
       } else {
         dispatch(setCurrentUser(data))
         dispatch(resetLoginForm())
+        return data
       }
     })
     .catch(console.log)

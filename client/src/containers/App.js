@@ -30,7 +30,6 @@ class App extends Component {
             <Route exact path ="/member/homes" render={() => (this.props.user ? (<MemberShow />) : (<Redirect to='/' />))} />
             <Route component={ MainContainer } />
           </Switch>
-
         </div>
         <div className="Foot">
           <Footer />
@@ -47,22 +46,3 @@ const mapStateToProps = ({ user }) => {
 };
 
 export default connect(mapStateToProps, { getCurrentUser })(App);
-
-
-
-// { this.props.user ? (
-//     <Switch>
-//       <Route exact path ="/member/homes" component={ MemberShow } />
-//       <Route component={ MainContainer } />
-//       <Redirect from="/signup" to="/"/>
-//       <Redirect from="/login" to="/"/>
-//     </Switch>
-//   ) : (
-//     <Switch>
-//       <Route exact path ="/signup" component={ Signup } />
-//       <Route exact path ="/login" component={ Login } />
-//       <Route component={ MainContainer } />
-//       <Redirect from="/member/homes" to="/login"/>
-//     </Switch>
-//   )
-// }

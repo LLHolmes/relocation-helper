@@ -70,6 +70,30 @@
   padding: 0px;
 }
 
+.AssessmentList {
+  background-color: white;
+  color: black;
+  height: 100%;
+  padding: 20px 0px 0px 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(2) {
+  background-color: #61dafb;
+}
+
 .MemberShow {
   text-align: center;
   /* height: 80%; */

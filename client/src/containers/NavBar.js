@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logout from '../components/Logout';
 
-const NavBar = ({ history, user }) => {
+const NavBar = ({ user }) => {
 
   return (
     <div className="NavBar">

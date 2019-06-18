@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { updateLoginForm } from '../actions/formLoginActions.js';
 import { loginUser } from '../actions/userActions.js';
 
 const Login = ({ history, formLogin, updateLoginForm, loginUser }) => {
+  console.log(history)
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -56,4 +58,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { updateLoginForm, loginUser })(Login);
+export default withRouter(connect(mapStateToProps, { updateLoginForm, loginUser })(Login));

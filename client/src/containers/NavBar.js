@@ -14,7 +14,7 @@ const NavBar = ({ history, user }) => {
         <NavLink className="NavRight" to="/login">Login</NavLink>
       )}
       { user ? (
-        <Logout history={history} />
+        <Logout />
       ) : (
         <NavLink className="NavRight" to="/signup">Signup</NavLink>
       )}

@@ -10,6 +10,7 @@ import MainContainer from './MainContainer';
 import Signup from '../components/Signup';
 import Login from '../components/Login';
 import MemberShow from './MemberShow';
+import AssessmentList from './AssessmentList';
 
 class App extends Component {
 
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path ="/signup" render={() => (this.props.user ? (<Redirect to='/' />) : (<Signup />))} />
             <Route exact path ="/login" render={() => (this.props.user ? (<Redirect to='/' />) : (<Login />))} />
             <Route exact path ="/member/homes" render={() => (this.props.user ? (<MemberShow />) : (<Redirect to='/' />))} />
+            <Route exact path = "/comps/index" render={() => (this.props.comps.length > 0 ? (<AssessmentList />) : (<Redirect to='/' />))} />
             <Route component={ MainContainer } />
           </Switch>
         </div>
@@ -39,9 +41,10 @@ class App extends Component {
   };
 };
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = state => {
   return {
-    user
+    user: state.user,
+    comps: state.search.comps
   };
 };
 

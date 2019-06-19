@@ -136,6 +136,10 @@ tr:nth-child(2) {
   background-color: #282c34;
 }
 
+.Zillowlogo {
+  margin-right: 10px;
+}
+
 a {
   text-decoration: none;
   color: #61dafb;

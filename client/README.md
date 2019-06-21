@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 
-Enter an address into Homebuyer's Helper and receive information on that home along with a list of recently sold comparable homes.  If logged in, you can save the address of your home/s and they'll greet you next time you log in.
+Enter an address into Homebuyer's Helper and receive information from the Zillow API on that home along with a list of recently sold comparable homes.  If logged in, you can save the address of your home/s and they'll greet you next time you log in.
 
 Happy home buying!
 

@@ -37,7 +37,7 @@ Happy home buying!
 
 ## Development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The front end for this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
@@ -53,6 +53,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/LLHolm
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+MIT © Lana Holmes
 
 ## Code of Conduct
 

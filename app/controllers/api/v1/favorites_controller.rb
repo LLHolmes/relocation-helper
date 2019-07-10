@@ -21,7 +21,7 @@ class Api::V1::FavoritesController < ApplicationController
 
   def destroy
     if @favorite.destroy
-      status: 202
+      render json: { notice: "Deleted this favorite" }, status: 202
     else
       render json: { error: "Unable to unfavorite this home" }, status: 400
     end

@@ -33,6 +33,8 @@ gem 'rack-cors'
 
 ## Use dotenv for API keys
 gem 'dotenv-rails'
+## Use faraday for Rails calls to Zillow API
+gem 'faraday'
 
 ## Use foreman for api/react server communication
 gem 'foreman', '~> 0.85.0'

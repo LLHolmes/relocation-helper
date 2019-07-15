@@ -2,13 +2,7 @@
 // ACTIONS TO HANDLE CALLS TO ZILLOW API FROM THE SEARCH FORM //
 ////////////////////////////////////////////////////////////////
 
-import { parseXML } from './actionHelper.js'
 import { resetSearchForm } from './formSearchActions.js';
-
-const ZWSID = process.env.REACT_APP_ZWSID;
-
-const zillowSearchBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=${ZWSID}`
-const zillowCompsBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWSID}`
 
 const baseUrl = 'http://localhost:3000';
 
@@ -55,7 +49,7 @@ export const hardClearSearch = () => {
 
 
 //// ASYNCHRONOUS ACTION CREATORS ////
-// Search single home on Zillow API from search form input
+// Search single home on Zillow API from search form input.
 export const submitSearch = search => {
   // If necessary information is provided, call to backend to complete search.
   if (search.cityState || search.zipcode) {
@@ -94,33 +88,24 @@ export const submitSearch = search => {
 
 // Find comps of single searched home on Zillow API
 export const findComps = searchedHome => {
-
-  let comps = [];
-  let comparable = {};
-
-  let zpid = encodeURIComponent(searchedHome.zpid);
-  let count = 15
-
   return dispatch => {
-    return fetch(zillowCompsBase + `&zpid=${zpid}&count=${count}`)
-    .then(response => response.text())
-    .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-    .then(xml => xml.getElementsByTagName('comp'))
-    .then(xml => {
-      for (let tag of xml) {
-        comparable = parseXML(tag)
-        if(!!tag.getAttribute('score')) {
-          comparable.score = tag.getAttribute('score');
-        };
-        comps.push(comparable)
-      }
-      comps.sort((a, b) => (parseInt(b.score) - parseInt(a.score)))
-
-      dispatch(setComps(comps))
-      dispatch(setCompSearch(searchedHome))
+    return fetch(baseUrl + '/search_comps', {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({zpid: searchedHome.zpid})
     })
-    .catch(error => {
-      alert("Something went wrong. Please try again.")
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert(data.error)
+      } else {
+        dispatch(setComps(data))
+        dispatch(setCompSearch(searchedHome))
+      }
     })
   };
 }

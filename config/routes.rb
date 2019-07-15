@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'auth#destroy'
   get '/get_current_user', to: 'auth#get_current_user'
 
-  get '/search_home', to 'zillow#search_home'
-  get '/search_comps', to 'zillow#search_comps'
+  post '/search_home', to: 'zillow#search_home'
+  post '/search_comps', to: 'zillow#search_comps'
 
   namespace :api do
     namespace :v1 do

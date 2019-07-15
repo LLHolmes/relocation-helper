@@ -35,6 +35,8 @@ gem 'rack-cors'
 gem 'dotenv-rails'
 ## Use faraday for Rails calls to Zillow API
 gem 'faraday'
+## Use crack to parse Zillow xml to json
+gem 'crack'
 
 ## Use foreman for api/react server communication
 gem 'foreman', '~> 0.85.0'

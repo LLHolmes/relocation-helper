@@ -1,4 +1,9 @@
 When working, in Procfile set web as:
 web: cd client && npm start
-For deployment:
+
+
+For deployment, in Procfile:
 web: bundle exec rails s
+
+Add to .env.development:
+HOST=name.herokuapp.com

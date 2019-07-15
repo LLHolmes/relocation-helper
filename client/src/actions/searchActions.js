@@ -10,6 +10,8 @@ const ZWSID = process.env.REACT_APP_ZWSID;
 const zillowSearchBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=${ZWSID}`
 const zillowCompsBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWSID}`
 
+const baseUrl = 'http://localhost:3000';
+
 //// SYNCHRONOUS ACTION CREATORS ////
 export const setSearch = data => {
   return {
@@ -53,33 +55,34 @@ export const hardClearSearch = () => {
 
 
 //// ASYNCHRONOUS ACTION CREATORS ////
-// Search single home on Zillow API from search form
+// Search single home on Zillow API from search form input
 export const submitSearch = search => {
-
+  // If necessary information is provided, call to backend to complete search.
   if (search.cityState || search.zipcode) {
-    let address = encodeURIComponent(search.street);
-    let citystatezip = search.zipcode ? encodeURIComponent(search.zipcode) : encodeURIComponent(search.cityState);
-
     return dispatch => {
-      return fetch(zillowSearchBase + `&address=${address}&citystatezip=${citystatezip}`)
-      .then(response => response.text())
-      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-      .then(xml => {
-        let searchedHome = parseXML(xml)
-        if(searchedHome.street === "unknown") {
+      return fetch(baseUrl + '/search_home', {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(search)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
           dispatch(clearSearch())
-          alert("Zillow could not find this home")
+          alert(data.error)
           dispatch(resetSearchForm())
         } else {
-          dispatch(setSearch(searchedHome))
+          dispatch(setSearch(data))
           dispatch(resetSearchForm())
-          dispatch(findComps(searchedHome))
+          dispatch(findComps(data))
         }
       })
-      .catch(error => {
-        alert("Something went wrong. Please try again.")
-      })
     };
+  // Else alert user and clear search forms.
   } else {
     alert("Please enter city and state or zipcode.");
     return dispatch => {

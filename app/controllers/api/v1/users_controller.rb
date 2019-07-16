@@ -5,6 +5,8 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       render json: @user
+    elsif User.find_by(email: @user.email)
+      render json: { error: "User already exists" }, status: 400
     else
       render json: { error: "Unable to create this user" }, status: 400
     end

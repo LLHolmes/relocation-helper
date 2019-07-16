@@ -1,5 +1,5 @@
 class ZillowController < ApplicationController
-  
+
   def search_home
     @response = Faraday.get('http://www.zillow.com/webservice/GetDeepSearchResults.htm?') do |req|
       req.params['zws-id'] = ENV['ZILLOW_ZWSID']
@@ -34,6 +34,9 @@ class ZillowController < ApplicationController
           lastSoldPrice: @data['lastSoldPrice'],
           zestimate: @data['zestimate']['amount']
         }
+        if @searchedHome[:zestimate].class == Hash
+          @searchedHome[:zestimate] = " unknown"
+        end
 
         if params[:id]
           @searchedHome[:apiId] = params[:id]
@@ -86,6 +89,10 @@ class ZillowController < ApplicationController
             lastSoldPrice: data['lastSoldPrice'],
             zestimate: data['zestimate']['amount']
           }
+          if comp[:zestimate].class == Hash
+            comp[:zestimate] = " unknown"
+          end
+          comp
         }.sort! {|a, b| b[:score] <=> a[:score]}
 
         render json: @comps, status: 200
@@ -98,6 +105,5 @@ class ZillowController < ApplicationController
       end
     end
   end
-
 
 end

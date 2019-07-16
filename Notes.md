@@ -6,4 +6,4 @@ For deployment, in Procfile:
 web: bundle exec rails s
 
 Add to .env.development:
-HOST=name.herokuapp.com
+HOST=homebuyers-helper-app.herokuapp.com

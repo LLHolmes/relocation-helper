@@ -5,7 +5,6 @@ import { updateLoginForm } from '../actions/formLoginActions.js';
 import { loginUser } from '../actions/userActions.js';
 
 const Login = ({ history, formLogin, updateLoginForm, loginUser }) => {
-  console.log(history)
 
   const handleChange = event => {
     const { name, value } = event.target;

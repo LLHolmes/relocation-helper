@@ -2,7 +2,7 @@
 // ACTIONS TO HANDLE CALLS TO ZILLOW API FOR A USER'S SAVED HOMES //
 ////////////////////////////////////////////////////////////////////
 
-const baseUrl = 'http://localhost:3000';
+import { baseUrl } from './actionHelper.js';
 
 //// SYNCHRONOUS ACTION CREATORS ////
 export const setUserHomeSearch = data => {

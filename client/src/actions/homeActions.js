@@ -7,16 +7,16 @@ import { removeUserSearchedHome } from './userHomesActions.js';
 import { removeUserApiHome } from './userActions.js';
 import { setNewUserHome } from './userActions.js';
 import { clearSearch } from './searchActions.js';
+import { baseUrl } from './actionHelper.js';
 
-
-const baseUrl = 'http://localhost:3000/api/v1';
+const apiBaseUrl = baseUrl + '/api/v1'
 
 // synchronous action creators come from other action files
 
 // asynchronous action creators (api user's homes)
 export const saveHome = (homeParams, search) => {
   return dispatch => {
-    return fetch(baseUrl + '/homes', {
+    return fetch(apiBaseUrl + '/homes', {
       credentials: "include",
       method: "POST",
       headers: {
@@ -35,7 +35,7 @@ export const saveHome = (homeParams, search) => {
     })
     .then( data => {
       let userHomeSearch = {...search, apiId: data.id}
-      
+
       dispatch(setNewUserHome(data))
       dispatch(addSavedUserHome(userHomeSearch))
       dispatch(clearSearch())
@@ -46,7 +46,7 @@ export const saveHome = (homeParams, search) => {
 
 export const deleteHome = apiId => {
   return dispatch => {
-    return fetch(baseUrl + `/homes/${apiId}`, {
+    return fetch(apiBaseUrl + `/homes/${apiId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {

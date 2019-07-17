@@ -3,8 +3,7 @@
 ////////////////////////////////////////////////////////////////
 
 import { resetSearchForm } from './formSearchActions.js';
-
-const baseUrl = 'http://localhost:3000';
+import { baseUrl } from './actionHelper.js';
 
 //// SYNCHRONOUS ACTION CREATORS ////
 export const setSearch = data => {

@@ -6,8 +6,8 @@ import { resetLoginForm } from './formLoginActions.js';
 import { resetSignupForm } from './formSignupActions.js';
 import { clearUserHomes } from './userHomesActions.js';
 import { hardClearSearch } from './searchActions.js';
+import { baseUrl } from './actionHelper.js';
 
-const baseUrl = '';
 const apiBaseUrl = baseUrl + '/api/v1'
 
 export const setCurrentUser = user => {

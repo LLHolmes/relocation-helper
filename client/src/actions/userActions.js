@@ -7,7 +7,7 @@ import { resetSignupForm } from './formSignupActions.js';
 import { clearUserHomes } from './userHomesActions.js';
 import { hardClearSearch } from './searchActions.js';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = '';
 const apiBaseUrl = baseUrl + '/api/v1'
 
 export const setCurrentUser = user => {

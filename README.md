@@ -5,26 +5,29 @@ Flatiron School - React Portfolio Project
 Home Sweet Homebuyer's Helper!  Thinking of buy or selling a home?  Want to keep tabs on your real estate investments?  Need to contest the dreaded assessor’s office?  Increase your knowledge of the current housing market with Homebuyer's Helper - a React app with a Rails back end.
 
 ## Usage
-This project is currently run on your local host.
+This project is currently hosted at https://homebuyers-helper-app.herokuapp.com/.
 
-Please fork and clone this repo then:
+To run on your local host, fork and clone this repo, then:
 
 Run:
-  $ bundle install
+```
+$ bundle install
+$ cd client
+$ npm install
+$ cd ..
+```
 
-Then:
-  $ rake db:create && rake db:migrate
+Migrate database:
+```
+$ rake db:create && rake db:migrate
+```
 
 To run on your local machine:
-  $ rake start
+```
+$ rake start
+```
 
-Shut down the server using control C.
-
-If you have issues you may need to install the react front end before trying to start the server again:
-  $ cd client
-  $ npm install
-  $ cd ..
-  $ rake start
+Shut down the server using ^C.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

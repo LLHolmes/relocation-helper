@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :homes, only: [:create, :destroy]
+      resources :favorites, only: [:create, :destroy]
       post '/signup', to: 'users#create'
       delete '/unsubscribe', to: 'users#destroy'
     end

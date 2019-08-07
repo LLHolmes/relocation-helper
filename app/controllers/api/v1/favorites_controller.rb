@@ -1,14 +1,5 @@
 class Api::V1::FavoritesController < ApplicationController
-  before_action :find_favorite, only: [:show, :update, :destroy]
-
-  def index
-    @favorites = current_user.favorites
-    render json: @favorites, status: 200
-  end
-
-  def show
-    render json: @favorite, status: 200
-  end
+  before_action :find_favorite, only: [:destroy]
 
   def create
     @favorite = current_user.favorites.build(favorite_params)

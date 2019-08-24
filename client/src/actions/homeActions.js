@@ -2,7 +2,7 @@
 // ACTIONS TO HANDLE A USER'S SAVED HOMES ON LOCAL RAILS API //
 ///////////////////////////////////////////////////////////////
 
-import { addSavedUserHome } from './userHomesActions.js'
+import { addSavedUserHome } from './userHomesActions.js';
 import { removeUserSearchedHome } from './userHomesActions.js';
 import { removeUserApiHome } from './userActions.js';
 import { setNewUserHome } from './userActions.js';
@@ -42,7 +42,7 @@ export const saveHome = (homeParams, search) => {
     })
     .catch(console.log)
   }
-}
+};
 
 export const deleteHome = apiId => {
   return dispatch => {
@@ -65,4 +65,4 @@ export const deleteHome = apiId => {
       }
     })
   }
-}
+};

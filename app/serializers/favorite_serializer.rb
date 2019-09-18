@@ -1,5 +1,5 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :street, :cityState, :zipcode
+  attributes :id, :street, :cityState, :zipcode
 
   belongs_to :user
 end

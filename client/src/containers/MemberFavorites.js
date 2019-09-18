@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchUserHomes } from '../actions/userHomesActions.js';
-import { deleteHome } from '../actions/homeActions.js';
+import { searchUserFavorites } from '../actions/userFavoritesActions.js';
+import { deleteFavorite } from '../actions/favoriteActions.js';
 import MemberHomeCard from '../components/MemberHomeCard.js';
 import Unsubscribe from '../components/Unsubscribe.js';
 
 class MemberFavorites extends Component {
 
   componentDidMount() {
-    if (this.props.userHomes.length === 0) {
-      this.props.user.homes.forEach(home => {
-        this.props.searchUserHomes(home);
+    if (this.props.userFavorites.length === 0) {
+      this.props.user.favorites.forEach(favorite => {
+        this.props.searchUserFavorites(favorite);
       });
     }
   };
 
   render() {
-    const showUserHomes = this.props.userHomes.map(home => {
+    const showUserFavorites = this.props.userFavorites.map(favorite => {
       return(
         <MemberHomeCard
-          key={home.apiId}
-          home={home}
-          deleteHome={() => this.props.deleteHome(home.apiId)}
+          key={favorite.apiId}
+          home={favorite}
+          deleteHome={() => this.props.deleteFavorite(favorite.apiId)}
           clearSearch={this.props.clearSearch}
         />
       )
     });
 
     return (
-      <div className="MemberShow">
-        <h1> Welcome Home, { this.props.user.name }! </h1>
-        { this.props.userHomes.length > 0 ? <h3  className="cardHolder">My Saved Homes</h3> : ''}
-        { showUserHomes }
+      <div className="MemberFavorite">
+        <h1> Your Favorites, { this.props.user.name }! </h1>
+        { this.props.userFavorites.length > 0 ? <h3  className="cardHolder">My Saved Favorites</h3> : ''}
+        { showUserFavorites }
         <Unsubscribe history={this.props.history} />
       </div>
     );
@@ -41,8 +41,8 @@ class MemberFavorites extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    userHomes: state.userHomes
+    userFavorites: state.userFavorites
   };
 };
 
-export default connect(mapStateToProps, { searchUserHomes, deleteHome })(MemberFavorites);
+export default connect(mapStateToProps, { searchUserFavorites, deleteFavorite })(MemberFavorites);

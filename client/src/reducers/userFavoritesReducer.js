@@ -10,7 +10,7 @@ export default (state = [], action) => {
         ...state,
         action.data
       ];
-    case "REMOVE_USER_SEARCHED_FAVORITE":
+    case "REMOVE_USER_FAVORITE":
       return state.filter(favorite => favorite.apiId !== action.id);
     case "CLEAR_USER_FAVORITES":
       return [];

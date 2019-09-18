@@ -30,9 +30,23 @@ export const setNewUserHome = home => {
   }
 }
 
+export const setNewUserFavorite = favorite => {
+  return {
+    type: "SET_NEW_USER_API_FAVORITE",
+    favorite
+  }
+}
+
 export const removeUserApiHome = id => {
   return {
     type: "REMOVE_USER_API_HOME",
+    id
+  }
+}
+
+export const removeUserApiFavorite = id => {
+  return {
+    type: "REMOVE_USER_API_FAVORITE",
     id
   }
 }

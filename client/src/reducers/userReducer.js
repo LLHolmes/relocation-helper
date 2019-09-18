@@ -16,6 +16,11 @@ export default (state = null, action) => {
         ...state,
         homes: state.homes.filter(home => home.id !== action.id)
       };
+    case "REMOVE_USER_API_FAVORITE":
+      return {
+        ...state,
+        favorites: state.favorites.filter(favorite => favorite.id !== action.id)
+      };
     default:
       return state;
   };

@@ -11,6 +11,11 @@ const NavBar = ({ user }) => {
       { user ? (
         <NavLink className="NavAccount" to="/member/homes">Account</NavLink>
       ) : (
+        <></>
+      )}
+      { user ? (
+        <NavLink className="NavFavorites" to="/member/favorites">Favorites</NavLink>
+      ) : (
         <NavLink className="NavRight" to="/login">Login</NavLink>
       )}
       { user ? (

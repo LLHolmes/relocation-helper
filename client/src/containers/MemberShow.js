@@ -7,14 +7,6 @@ import Unsubscribe from '../components/Unsubscribe.js';
 
 class MemberShow extends Component {
 
-  componentDidMount() {
-    if (this.props.userHomes.length === 0) {
-      this.props.user.homes.forEach(home => {
-        this.props.searchUserHomes(home);
-      });
-    }
-  };
-
   render() {
     const showUserHomes = this.props.userHomes.map(home => {
       return(
@@ -27,11 +19,24 @@ class MemberShow extends Component {
       )
     });
 
+    const showUserFavorites = this.props.userFavorites.map(favorite => {
+      return(
+        <MemberHomeCard
+          key={favorite.apiId}
+          home={favorite}
+          deleteHome={() => this.props.deleteFavorite(favorite.apiId)}
+          clearSearch={this.props.clearSearch}
+        />
+      )
+    });
+
     return (
       <div className="MemberShow">
         <h1> Welcome Home, { this.props.user.name }! </h1>
         { this.props.userHomes.length > 0 ? <h3  className="cardHolder">My Saved Homes</h3> : ''}
         { showUserHomes }
+        { this.props.userFavorites.length > 0 ? <h3  className="cardHolder">My Favorites</h3> : ''}
+        { showUserFavorites }
         <Unsubscribe history={this.props.history} />
       </div>
     );
@@ -41,7 +46,8 @@ class MemberShow extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    userHomes: state.userHomes
+    userHomes: state.userHomes,
+    userFavorites: state.userFavorites
   };
 };
 

@@ -94,7 +94,7 @@ tr:nth-child(2) {
   background-color: #61dafb;
 }
 
-.MemberShow {
+.MemberShow, .MemberFavorite {
   text-align: center;
   /* height: 80%; */
   overflow: scroll;
@@ -257,7 +257,22 @@ a.zillow {
   border-width: 1px;
   border-radius: 2px;
   position: absolute;
-  bottom: 48px;
+  bottom: 65px;
+  right: 26px;
+}
+
+.saveFavorite  {
+  float: left;
+  width: 24%;
+  margin: auto;
+  font-size: 14px;
+  color: #282c34;
+  background-color: #61dafb;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 35px;
   right: 26px;
 }
 

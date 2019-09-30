@@ -40,3 +40,8 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(CompMap);
+
+// For CORS error:
+// const ZWSID = process.env.REACT_APP_ZWSID;
+//
+// const zillowSearchBase = `https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=${ZWSID}`

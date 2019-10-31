@@ -4,23 +4,33 @@ import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
+// if (navigator.geolocation) {
+//      navigator.geolocation.getCurrentPosition(function (position) {
+//          initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//          map.setCenter(initialLocation);
+//      });
+//  }
+
 // const CompMap = ({ comps }) => {
+// SHOULD I ADD A MAP CENTER & ZOOM TO REDUX & HAVE IT UPDATED W/SEARCH???
 class CompMap extends React.Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
-  };
+
+  // static defaultProps = {
+  //   center: {
+  //     lat: 39.8283,
+  //     lng: 265.5795
+  //   },
+  //   zoom: 3
+  // };
 
   render() {
+    console.log(this.props.map.center)
     return (
-      <div className="CompMap" style={{ height: '100vh', width: '100%' }}>
+      <div className="CompMap" style={{ height: '40vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          center={this.props.map.center}
+          zoom={this.props.map.zoom}
         >
           <AnyReactComponent
             lat={59.955413}
@@ -35,7 +45,8 @@ class CompMap extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    comps: state.search.comps
+    comps: state.search.comps,
+    map: state.map
   }
 }
 

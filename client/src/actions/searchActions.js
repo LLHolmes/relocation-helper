@@ -4,6 +4,7 @@
 
 import { resetSearchForm } from './formSearchActions.js';
 import { baseUrl } from './actionHelper.js';
+import { setMap } from './mapActions.js';
 
 //// SYNCHRONOUS ACTION CREATORS ////
 export const setSearch = data => {
@@ -72,6 +73,14 @@ export const submitSearch = search => {
           dispatch(setSearch(data))
           dispatch(resetSearchForm())
           dispatch(findComps(data))
+          let mapData = {
+            center: {
+              lat: data.latitude,
+              lng: data.longitude
+            },
+            zoom: 11
+          }
+          dispatch(setMap(mapData))
         }
       })
     };

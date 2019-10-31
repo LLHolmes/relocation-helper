@@ -75,8 +75,8 @@ export const submitSearch = search => {
           dispatch(findComps(data))
           let mapData = {
             center: {
-              lat: data.latitude,
-              lng: data.longitude
+              lat: parseFloat(data.latitude),
+              lng: parseFloat(data.longitude)
             },
             zoom: 11
           }

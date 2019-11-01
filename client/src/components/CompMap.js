@@ -7,9 +7,25 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 // const CompMap = ({ comps }) => {}
 class CompMap extends React.Component {
 
+  // renderMarkers(earthquakes) {
+  //   const { handleClick } = this.props;
+  //   return earthquakes.map(function(earthquake, index) {
+  //     return (
+  //       <MapMark // need to create mark component
+  //         key={index}
+  //         lat={earthquake.geometry.coordinates[1]}
+  //         lng={earthquake.geometry.coordinates[0]}
+  //         earthquake={earthquake}
+  //         handleClick={handleClick}
+  //       />
+  //     )
+  //   });
+  // };
+  // See here:
+  // https://github.com/itsmichaeldiego/earthquaker/blob/master/src/components/MapMark.js
+
   render() {
     const { center, zoom } = this.props.map;
-    console.log(this.props.map.center)
     return (
       <div className="CompMap" style={{ height: '40vh', width: '100%' }}>
         <GoogleMapReact
